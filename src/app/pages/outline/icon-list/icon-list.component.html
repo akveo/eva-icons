@@ -1,0 +1,17 @@
+<nb-card *ngFor="let icon of icons">
+  <nb-card-body>
+    <i class="{{ icon }}"></i>
+    <span *ngIf="isFullViewMode"
+          class="icon-class">
+      {{ icon }}
+    </span>
+  </nb-card-body>
+</nb-card>
+
+<nb-card class="fake-card"></nb-card>
+<nb-card class="fake-card"></nb-card>
+<nb-card class="fake-card"></nb-card>
+<nb-card class="fake-card"></nb-card>
+<nb-card class="fake-card"></nb-card>
+<nb-card class="fake-card"></nb-card>
+<nb-card class="fake-card"></nb-card>

@@ -1,0 +1,151 @@
+@import '../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+  $right-section-width: nb-theme(settings-col-width);
+  $logo-fg: nb-theme(header-fg);
+  $version-fg: nb-theme(color-primary);
+  $primary: nb-theme(color-primary);
+
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 7rem;
+  justify-content: space-between;
+
+  .section {
+    display: flex;
+    padding: 0.875rem 0.5rem;
+
+    &.left {
+    }
+  }
+
+  .logo {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row;
+    font-size: nb-theme(font-size-xlg);
+
+    a {
+      color: $logo-fg;
+      text-decoration: none !important;
+      font-weight: bold;
+    }
+
+    .version {
+      font-size: nb-theme(font-size);
+      display: none;
+      font-weight: bold;
+      color: $version-fg;
+    }
+  }
+
+  .stars {
+    width: 95px;
+    height: 20px;
+    margin-left: 3rem;
+    align-self: flex-end;
+  }
+
+  /deep/ nb-menu {
+    flex: 1;
+
+    .menu-items {
+      display: flex;
+      justify-content: flex-end;
+
+      .menu-item {
+        border: none;
+
+        &:first-child a {
+          padding-left: 0;
+        }
+
+        a {
+          position: relative;
+          font-size: nb-theme(font-size-sm);
+          color: nb-theme(menu-item-fg);
+          padding: 0.5rem 1.625rem 0.5rem 1rem;
+          display: block;
+
+          &:hover, &.active, &:focus {
+            color: $primary;
+            text-shadow: 0.5px 0 0 currentColor;
+            font-weight: normal;
+            outline: none!important;
+
+            .menu-icon {
+              color: $primary;
+            }
+          }
+
+          &.active {
+            &::after {
+              content: '';
+              position: absolute;
+              border: 2px solid $primary;
+              width: 100%;
+              left: 0;
+              bottom: 0;
+              border-radius: nb-theme(radius);
+            }
+          }
+        }
+
+        .menu-icon {
+          font-size: 1.5rem;
+        }
+
+        .menu-title {
+          vertical-align: super;
+        }
+      }
+    }
+  }
+
+  .btn-download {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    color: nb-theme(color-white);
+    font-size: nb-theme(font-size-xs);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    i {
+      font-size: 1rem;
+    }
+
+    span {
+      margin-left: 1.25rem;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    margin: 0 1rem;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .logo {
+      align-items: baseline;
+      flex: 1 0 auto;
+
+      a {
+        margin-right: 0.5rem;
+      }
+      .version {
+        display: inline;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(is) {
+    .section {
+      padding: 0.875rem 1.125rem;
+    }
+  }
+}

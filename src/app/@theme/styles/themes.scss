@@ -1,0 +1,52 @@
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/corporate';
+
+$nb-enabled-themes: (eva);
+
+$nb-themes: nb-register-theme((
+  font-main: unquote('-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'),
+
+  content-width: 1100px,
+
+  color-primary: #3366ff,
+
+  separator: transparent,
+  color-bg: transparent,
+  color-fg: #0d1c2e,
+  color-fg-heading: #546d8d,
+  color-fg-text: #919fb1,
+  color-fg-icon: #c4c8d1,
+
+  shadow: none,
+
+  layout-bg: transparent,
+  layout-padding: 0,
+  layout-medium-padding: 0,
+  layout-small-padding: 0,
+
+  header-bg: color-bg,
+  header-padding: 0 0,
+  header-height: 4.25rem,
+  header-fg: color-fg,
+
+  menu-bg: transparent,
+  menu-item-padding: 0.675rem 1rem,
+  menu-item-fg: #d8e1f0,
+  menu-active-fg: color-primary,
+  menu-font-size: 0.95rem,
+  menu-font-weight: font-weight-normal,
+
+  menu-active-bg: transparent,
+
+  footer-height: 18.75rem,
+  footer-padding: 1.25rem 0,
+  footer-fg: #8992a3,
+  footer-fg-highlight: footer-fg,
+  footer-separator: transparent,
+
+
+  list-icon-item-bg: #ebf1fa,
+  list-icon-item-fg: #0d1c2e,
+
+  switcher-view-bg: #d8e1f0
+), eva, corporate);

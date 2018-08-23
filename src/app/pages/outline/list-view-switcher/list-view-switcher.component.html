@@ -1,0 +1,19 @@
+<div class="switch-button full-view"
+     [class.active]="isFullViewMode"
+     (click)="changeViewMode('full')">
+  <div class="rectangle"></div>
+  <div class="rectangle"></div>
+</div>
+
+<div class="switch-button icon-view"
+     [class.active]="isIconViewMode"
+     (click)="changeViewMode('icon')">
+  <div class="square-container">
+    <div class="square"></div>
+    <div class="square"></div>
+  </div>
+  <div class="square-container">
+    <div class="square"></div>
+    <div class="square"></div>
+  </div>
+</div>

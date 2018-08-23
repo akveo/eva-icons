@@ -1,0 +1,79 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $search-input-padding-sides: 2.5rem;
+  $search-input-padding-tops: 1.625rem;
+
+  margin-top: 3.5rem;
+  margin-bottom: 4rem;
+  display: block;
+
+  h1 {
+    color: $primary;
+    font-size: 5rem;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+
+  // search
+  .search {
+    width: 100%;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      border: 2px solid $primary;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      border-radius: nb-theme(radius);
+      box-shadow: 0 8px 32px 0 #edf0f5;
+    }
+
+    i {
+      color: $primary;
+      position: absolute;
+      font-size: 2.5rem;
+      font-weight: nb-theme(font-weight-bold);
+      right: $search-input-padding-sides;
+      top: calc(#{$search-input-padding-tops} - 0.25rem);
+    }
+  }
+
+  .search-input {
+    width: 100%;
+    border: none;
+    font-size: nb-theme(font-size-xlg);
+    padding: $search-input-padding-tops $search-input-padding-sides;
+
+    &::placeholder {
+      color: nb-theme(color-fg-text);
+      font-weight: nb-theme(font-weight-light);
+    }
+
+    &::-ms-clear {
+      display: none;
+    }
+  }
+  // search
+
+  // icons container
+  .icons {
+    position: relative;
+  }
+  // icons container
+
+  eva-list-view-switcher {
+    position: absolute;
+    left: 110%;
+    top: 25%;
+  }
+
+  eva-icon-list {
+    margin-top: 5rem;
+  }
+}
