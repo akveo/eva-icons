@@ -1,7 +1,6 @@
 @import '@theme/styles/themes';
 
 @include nb-install-component() {
-
   $content-width: nb-theme(content-width);
 
   .content-center {
@@ -38,20 +37,4 @@
   /deep/ nb-layout-footer {
     margin-top: 6rem;
   }
-
-/*  /deep/ nb-layout-footer ngd-footer .contact {
-    display: none;
-  }
-
-  @include media-breakpoint-up(xl) {
-    .contact-us {
-      padding: 5rem 0;
-    }
-  }
-
-  @include media-breakpoint-up(macpro) {
-    /deep/ nb-layout-footer {
-      margin-right: $settings-width + $settings-margin;
-    }
-  }*/
 }

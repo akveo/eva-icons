@@ -3,6 +3,7 @@
 
 $nb-enabled-themes: (eva);
 
+/* stylelint-disable */
 $nb-themes: nb-register-theme((
   font-main: unquote('-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'),
 

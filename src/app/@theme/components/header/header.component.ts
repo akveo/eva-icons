@@ -12,7 +12,7 @@ export class HeaderComponent {
   currentVersion: string;
 
   constructor(private versionService: EvoVersionService) {
-    this.currentVersion = versionService.getEvoVersion();
+    this.currentVersion = this.versionService.getEvoVersion();
   }
 
   mainMenu: NbMenuItem[] = [

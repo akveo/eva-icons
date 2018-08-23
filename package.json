@@ -1,13 +1,23 @@
 {
   "name": "eva-icons",
   "version": "0.0.1",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE 11"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "npm run build -- --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "lint:fix": "ng lint eva-icons --fix",
+    "lint:styles": "stylelint ./src/**/*.scss",
+    "lint:ci": "npm run lint && npm run lint:styles",
+    "e2e": "ng e2e",
+    "prepush": "npm run lint:ci"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +54,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "stylelint": "^9.5.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
