@@ -17,6 +17,7 @@ import {
   NbLayoutModule,
   NbCardModule,
   NbThemeModule,
+  NbOverlayModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -26,6 +27,7 @@ import {
     NbMenuModule,
     NbLayoutModule,
     NbCardModule,
+    NbOverlayModule,
   ],
   declarations: [
     FooterComponent,
@@ -39,6 +41,7 @@ import {
     NbCardModule,
     FooterComponent,
     HeaderComponent,
+    NbOverlayModule,
   ],
 })
 export class EvaThemeModule {
@@ -49,6 +52,7 @@ export class EvaThemeModule {
         ...NbThemeModule.forRoot({ name: 'eva' }).providers,
         ...evaServices,
         ...NbMenuModule.forRoot().providers,
+        ...NbOverlayModule.forRoot().providers,
       ],
     };
   }
