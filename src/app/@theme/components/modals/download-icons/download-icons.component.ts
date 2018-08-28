@@ -11,10 +11,11 @@ class IconsSize {
   png?: number | string;
 }
 
-class Icon {
+// todo: uncomment when api will be implemented
+/*class Icon {
   id: string;
   size?: number | string | null;
-}
+}*/
 
 @Component({
   selector: 'eva-download-icons',

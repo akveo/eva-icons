@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'eva-download-icon',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   templateUrl: './download-icon.component.html',
 })
 export class DownloadIconComponent {
+
+  @Input() selectedIcon: string;
 
   selectedFormat: string;
   selectedPngSize: number;

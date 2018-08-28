@@ -1,8 +1,8 @@
 <nb-card>
   <nb-card-body>
     <div class="icon-container">
-      <i class="nb-alert"></i>
-      <div class="icon-name">nb-alert</div>
+      <i class="{{ selectedIcon }}"></i>
+      <div class="icon-name">{{ selectedIcon }}</div>
     </div>
     <div class="download-controls">
       <div *ngFor="let item of downloadControls"
