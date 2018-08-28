@@ -16,6 +16,7 @@
   </eva-list-view-switcher>
 
   <eva-icon-list [icons]="icons"
-                 [view]="view">
+                 [view]="view"
+                 (clickIcon)="clickIcon($event)">
   </eva-icon-list>
 </div>

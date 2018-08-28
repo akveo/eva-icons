@@ -1,0 +1,166 @@
+@import '../../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $white: nb-theme(color-white);
+
+  nb-card {
+    width: 600px;
+    max-height: 890px;
+    background: $white;
+    border: 2px solid $primary;
+    border-radius: nb-theme(radius);
+  }
+
+  nb-card-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: nb-theme(color-fg);
+  }
+
+  nb-card-body {
+    padding-bottom: 2rem;
+    padding-top: 0;
+  }
+
+  .downloadable-formats {
+    > div {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid nb-theme(form-control-border-color);
+      cursor: pointer;
+
+      &:hover, &.active, &:active {
+        .icon {
+          border-color: $primary;
+        }
+
+        .name {
+          font-weight: 700;
+        }
+
+        /deep/ .customised-control-indicator {
+          border-color: nb-theme(checkbox-checked-bg);
+        }
+      }
+    }
+  }
+
+  .choose-format {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid nb-theme(form-control-border-color);
+    border-radius: 0.75rem;
+  }
+
+  .name {
+    font-size: nb-theme(font-size-sm);
+    font-weight: nb-theme(font-weight-bold);
+    color: nb-theme(format-name-fg);
+    text-align: center;
+    margin-left: 1.5rem;
+  }
+
+  nb-checkbox {
+    margin-left: auto;
+
+    /deep/ .customised-control {
+      padding: 0.375rem 0.75rem;
+    }
+
+    /deep/ .customised-control-indicator {
+      top: 20%;
+    }
+  }
+
+  .select-size-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 1rem;
+
+    .title {
+      color: nb-theme(color-fg);
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .available-sizes {
+    display: inline-flex;
+    margin-top: 1rem;
+    border: 1px solid $primary;
+    border-radius: nb-theme(radius);
+
+    li {
+      list-style: none;
+      color: $primary;
+      padding: 1rem 1.25rem;
+      border-left: 1px solid $primary;
+      font-weight: nb-theme(font-weight-bold);
+      cursor: pointer;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:hover, &.active, &:active {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+
+  .svg {
+    background: url('../../../../../assets/img/shape.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .png {
+    background: url('../../../../../assets/img/png.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .sketch {
+    background: url('../../../../../assets/img/sketch.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .fig {
+    background: url('../../../../../assets/img/figma.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .npm {
+    background: url('../../../../../assets/img/nmp.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .btn-download {
+    display: flex;
+    align-items: center;
+    color: nb-theme(color-white);
+    font-size: nb-theme(font-size-xs);
+    margin-top: 3.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    i {
+      font-size: 1rem;
+    }
+
+    span {
+      margin-left: 1.25rem;
+    }
+  }
+}

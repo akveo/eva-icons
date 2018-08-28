@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 // components
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DownloadIconComponent } from './components/modals/download-icon/download-icon.component';
+import { DownloadIconsComponent } from './components/modals/download-icons/download-icons.component';
 // components
 
 // services
@@ -18,6 +20,8 @@ import {
   NbCardModule,
   NbThemeModule,
   NbOverlayModule,
+  NbModalModule,
+  NbCheckboxModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -28,10 +32,14 @@ import {
     NbLayoutModule,
     NbCardModule,
     NbOverlayModule,
+    NbModalModule,
+    NbCheckboxModule,
   ],
   declarations: [
     FooterComponent,
     HeaderComponent,
+    DownloadIconComponent,
+    DownloadIconsComponent,
   ],
   exports: [
     RouterModule,
@@ -39,9 +47,16 @@ import {
     NbMenuModule,
     NbLayoutModule,
     NbCardModule,
+    NbModalModule,
+    NbOverlayModule,
+    NbCheckboxModule,
+
     FooterComponent,
     HeaderComponent,
-    NbOverlayModule,
+  ],
+  entryComponents: [
+    DownloadIconComponent,
+    DownloadIconsComponent,
   ],
 })
 export class EvaThemeModule {

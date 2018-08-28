@@ -1,0 +1,71 @@
+<nb-card>
+  <nb-card-header>Download Eva Icons</nb-card-header>
+  <nb-card-body>
+    <div class="downloadable-formats">
+      <div (click)="selectIconsFormat(svg)"
+           [class.active]="selectedFormats[svg]">
+        <div class="choose-format">
+          <div class="icon svg"></div>
+          <div class="name">SVG</div>
+          <nb-checkbox [value]="selectedFormats.svg"
+                       (click)="preventEvent($event)">
+          </nb-checkbox>
+        </div>
+      </div>
+      <div (click)="selectIconsFormat(png)"
+           [class.active]="selectedFormats[png]">
+        <div class="choose-format">
+          <div class="icon png"></div>
+          <div class="name">PNG</div>
+          <nb-checkbox [value]="selectedFormats.png"
+                       (click)="preventEvent($event)">
+          </nb-checkbox>
+        </div>
+
+        <div *ngIf="isDownloadPng" class="select-size-container">
+          <div class="title">Select a size (in pixels):</div>
+          <ul class="available-sizes">
+            <li *ngFor="let size of availablePngSizes"
+                (click)="selectIconsSize($event, png, size)"
+                [class.active]="size === selectedSizes[png]"
+            >
+              {{ size }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div (click)="selectIconsFormat(sketch)"
+           [class.active]="selectedFormats[sketch]">
+        <div class="choose-format">
+          <div class="icon sketch"></div>
+          <div class="name">Sketch</div>
+          <nb-checkbox [value]="selectedFormats.sketch"
+                       (click)="preventEvent($event)">
+          </nb-checkbox>
+        </div>
+      </div>
+      <div (click)="selectIconsFormat(fig)"
+           [class.active]="selectedFormats[fig]">
+        <div class="choose-format">
+          <div class="icon fig"></div>
+          <div class="name">FIG</div>
+          <nb-checkbox [value]="selectedFormats.fig"
+                       (click)="preventEvent($event)">
+          </nb-checkbox>
+        </div>
+      </div>
+      <div>
+        <div class="choose-format">
+          <div class="icon npm"></div>
+          <div class="name">NPM</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-download"
+            (click)="downloadIcons()">
+      <i class="nb-star"></i>
+      <span>Download</span>
+    </button>
+  </nb-card-body>
+</nb-card>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { EvoVersionService } from '../../services/version.service';
-import { NbMenuItem } from '@nebular/theme';
+import { NbMenuItem, NbModalService } from '@nebular/theme';
+
+import { DownloadIconsComponent } from '../modals/download-icons/download-icons.component';
 
 @Component({
   selector: 'eva-header',
@@ -10,11 +12,6 @@ import { NbMenuItem } from '@nebular/theme';
 export class HeaderComponent {
 
   currentVersion: string;
-
-  constructor(private versionService: EvoVersionService) {
-    this.currentVersion = this.versionService.getEvoVersion();
-  }
-
   mainMenu: NbMenuItem[] = [
     {
       title: 'Outline',
@@ -27,4 +24,20 @@ export class HeaderComponent {
       icon: 'nb-star',
     },
   ];
+
+  constructor(private versionService: EvoVersionService,
+              private modalService: NbModalService) {
+    this.currentVersion = this.versionService.getEvoVersion();
+  }
+
+  openIconsDowloadModal() {
+    this.modalService.show(
+      DownloadIconsComponent,
+      {
+        hasBackdrop: true,
+        backdropClass: 'download-icons',
+        closeOnBackdropClick: true,
+      },
+    );
+  }
 }

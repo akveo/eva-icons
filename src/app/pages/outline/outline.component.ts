@@ -2,8 +2,11 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@ang
 import { ActivatedRoute, Router} from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { debounceTime, delay, map, mergeMap, takeWhile, tap } from 'rxjs/operators';
+import { NbModalService } from '@nebular/theme';
 
 import { IconService } from '../../@core/data/icon.service';
+
+import { DownloadIconComponent } from '../../@theme/components/modals/download-icon/download-icon.component';
 
 @Component({
   selector: 'eva-outline',
@@ -21,7 +24,8 @@ export class OutlineComponent implements AfterViewInit, OnDestroy {
 
   constructor(private iconService: IconService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private modalService: NbModalService) {
   }
 
   ngAfterViewInit() {
@@ -69,6 +73,17 @@ export class OutlineComponent implements AfterViewInit, OnDestroy {
 
   changeView(viewMode) {
     this.view = viewMode;
+  }
+
+  clickIcon(icon) {
+    this.modalService.show(
+      DownloadIconComponent,
+      {
+        hasBackdrop: true,
+        backdropClass: 'download-icon',
+        closeOnBackdropClick: true,
+      },
+    );
   }
 
   ngOnDestroy() {

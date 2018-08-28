@@ -1,0 +1,138 @@
+@import '../../../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $white: nb-theme(color-white);
+
+  nb-card {
+    width: 600px;
+    max-height: 620px;
+    background: $white;
+    border: 2px solid $primary;
+    border-radius: nb-theme(radius);
+  }
+
+  nb-card-body {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: nb-theme(color-fg);
+
+    i {
+      font-size: 5rem;
+      font-weight: nb-theme(font-weight-bold);
+    }
+
+  }
+
+  .icon-name {
+    font-size: nb-theme(font-size-xlg);
+  }
+
+  .download-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+
+    > div {
+      margin-left: 1.5rem;
+      cursor: pointer;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover, &.active, &:active {
+        .download-control {
+          border-color: $primary;
+        }
+
+        .name {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .download-control {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid nb-theme(form-control-border-color);
+    border-radius: 0.75rem;
+  }
+
+  .svg {
+    background: url('../../../../../assets/img/shape.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .png {
+    background: url('../../../../../assets/img/png.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .sketch {
+    background: url('../../../../../assets/img/sketch.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .fig {
+    background: url('../../../../../assets/img/figma.svg') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .name {
+    font-size: nb-theme(font-size-sm);
+    font-weight: nb-theme(font-weight-bold);
+    color: nb-theme(format-name-fg);
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  .select-size-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      color: nb-theme(color-fg);
+    }
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .available-sizes {
+    display: inline-flex;
+    margin-top: 1.5rem;
+    border: 1px solid $primary;
+    border-radius: nb-theme(radius);
+
+    li {
+      list-style: none;
+      color: $primary;
+      padding: 1rem 1.25rem;
+      border-left: 1px solid $primary;
+      font-weight: nb-theme(font-weight-bold);
+      cursor: pointer;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:hover, &.active, &:active {
+        background-color: $primary;
+        color: $white;
+      }
+    }
+  }
+}

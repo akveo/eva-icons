@@ -49,5 +49,11 @@ $nb-themes: nb-register-theme((
   list-icon-item-bg: #ebf1fa,
   list-icon-item-fg: #0d1c2e,
 
-  switcher-view-bg: #d8e1f0
+  switcher-view-bg: #d8e1f0,
+
+  checkbox-checked-bg: #00db92,
+  checkbox-checked-border-color: checkbox-checked-bg,
+  checkbox-checked-checkmark: color-white,
+
+  format-name-fg: #6a7385
 ), eva, corporate);

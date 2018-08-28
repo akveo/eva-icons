@@ -37,4 +37,11 @@
   /deep/ nb-layout-footer {
     margin-top: 6rem;
   }
+
+  // modals
+  /deep/ .download-icon, /deep/ .download-icons {
+    background-color: nb-theme(color-white);
+    opacity: 0.9;
+  }
+  // modals
 }

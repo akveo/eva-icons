@@ -1,4 +1,5 @@
-<nb-card *ngFor="let icon of icons">
+<nb-card *ngFor="let icon of icons"
+         (click)="clickIconHandler(icon)">
   <nb-card-body>
     <i class="{{ icon }}"></i>
     <span *ngIf="isFullViewMode"

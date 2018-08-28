@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   HostBinding,
   Input,
+  Output,
 } from '@angular/core';
 
 const FULL = 'full';
@@ -19,6 +21,8 @@ export class IconListComponent {
   @Input() icons: string[];
   @Input() view: string;
 
+  @Output() clickIcon: EventEmitter<string> = new EventEmitter();
+
   @HostBinding('class.full-icon-mode')
   get isFullViewMode() {
     return this.view === FULL;
@@ -27,5 +31,9 @@ export class IconListComponent {
   @HostBinding('class.only-icon-mode')
   get isIconViewMode() {
     return this.view === ICON;
+  }
+
+  clickIconHandler(icon: string) {
+    this.clickIcon.emit(icon);
   }
 }
