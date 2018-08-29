@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// todo: uncomment when api will be implemented
+// import { HttpClient } from '@angular/common/http';
 
 class IconsFormat {
   png?: boolean;
@@ -33,6 +35,8 @@ export class DownloadIconsComponent {
     png: '64',
   };
 
+  /*constructor(private http: HttpClient) {}*/
+
   selectedSizes: IconsSize = {
     png: this.defaultIconsSizes[this.png],
   };
@@ -66,6 +70,13 @@ export class DownloadIconsComponent {
 
   downloadIcons() {
     // todo: uncomment when api will be implemented
+/*    this.http.get(
+      '/api',
+      {
+        responseType: 'text',
+      })
+      .subscribe((response) => {
+      });*/
 /*    const icons: Icon[] = Object.keys(this.selectedFormats)
       .reduce((result, iconFormat) => {
         if (this.selectedFormats[iconFormat]) {

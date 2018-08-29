@@ -2,6 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { EvaThemeModule } from './@theme/theme.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { PagesModule } from './pages/pages.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     PagesModule,
+    HttpClientModule,
 
     EvaThemeModule.forRoot(),
     CoreModule.forRoot(),

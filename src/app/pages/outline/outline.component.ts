@@ -76,7 +76,7 @@ export class OutlineComponent implements AfterViewInit, OnDestroy {
   }
 
   clickIcon(icon) {
-    const modalRef = this.modalService.show(
+    this.modalService.show(
       DownloadIconComponent,
       {
         hasBackdrop: true,
@@ -84,8 +84,6 @@ export class OutlineComponent implements AfterViewInit, OnDestroy {
         closeOnBackdropClick: true,
       },
     );
-
-    modalRef.content.selectedIcon = icon;
   }
 
   ngOnDestroy() {
