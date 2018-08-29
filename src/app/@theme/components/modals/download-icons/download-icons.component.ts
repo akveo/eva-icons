@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // todo: uncomment when api will be implemented
 // import { HttpClient } from '@angular/common/http';
+import { NbModalRef } from '@nebular/theme';
 
 class IconsFormat {
   png?: boolean;
@@ -35,7 +36,7 @@ export class DownloadIconsComponent {
     png: '64',
   };
 
-  /*constructor(private http: HttpClient) {}*/
+  constructor(protected modalRef: NbModalRef<DownloadIconsComponent>/*private http: HttpClient*/) {}
 
   selectedSizes: IconsSize = {
     png: this.defaultIconsSizes[this.png],
@@ -69,6 +70,8 @@ export class DownloadIconsComponent {
   }
 
   downloadIcons() {
+    this.modalRef.hide();
+
     // todo: uncomment when api will be implemented
 /*    this.http.get(
       '/api',
