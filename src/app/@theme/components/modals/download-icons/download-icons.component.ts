@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 // todo: uncomment when api will be implemented
-// import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { NbModalRef } from '@nebular/theme';
+import { saveAs } from 'file-saver';
 
 class IconsFormat {
   png?: boolean;
@@ -36,7 +37,10 @@ export class DownloadIconsComponent {
     png: '64',
   };
 
-  constructor(protected modalRef: NbModalRef<DownloadIconsComponent>/*private http: HttpClient*/) {}
+  constructor(protected modalRef: NbModalRef<DownloadIconsComponent>,
+              private http: HttpClient) {
+
+  }
 
   selectedSizes: IconsSize = {
     png: this.defaultIconsSizes[this.png],
@@ -73,25 +77,16 @@ export class DownloadIconsComponent {
     this.modalRef.hide();
 
     // todo: uncomment when api will be implemented
-/*    this.http.get(
-      '/api',
-      {
-        responseType: 'text',
+    this.http.get(
+      '/api/download/icons', {
+        observe: 'response',
+        responseType: 'blob',
       })
       .subscribe((response) => {
-      });*/
-/*    const icons: Icon[] = Object.keys(this.selectedFormats)
-      .reduce((result, iconFormat) => {
-        if (this.selectedFormats[iconFormat]) {
-          const icon: Icon = {
-            id: iconFormat,
-            size: this.selectedSizes[iconFormat] ? this.selectedSizes[iconFormat] : null,
-          };
+        const header = response.headers.get('Content-Disposition');
+        const filename = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(header)[1];
 
-          return result.concat(icon);
-        }
-
-        return result;
-      }, []);*/
+        saveAs(response.body, filename);
+      });
   }
 }

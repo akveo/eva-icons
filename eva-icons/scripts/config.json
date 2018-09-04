@@ -1,0 +1,19 @@
+{
+  "formats": [
+    {
+      "format": "svg"
+    },
+    {
+      "format": "png",
+      "size": ["16", "24", "32", "64", "128", "256", "512"]
+    },
+    {
+      "format": "fig"
+    },
+    {
+      "format": "sketch"
+    }
+  ],
+  "srcPath": "./eva-icons/source_icons",
+  "desPath": "./eva-icons/destination_icons"
+}
