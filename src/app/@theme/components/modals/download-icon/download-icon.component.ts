@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { saveAs } from 'file-saver';
+import { HttpParams } from '@angular/common/http';
+
+import { ApiService } from '../../../../@core/data/api.service';
 
 @Component({
   selector: 'eva-download-icon',
@@ -34,7 +35,7 @@ export class DownloadIconComponent {
   availablePngSizes: number[] = [16, 24, 32, 64, 128, 256, 512];
   isDownloadPng = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private apiService: ApiService) {
   }
 
   selectFormatAndDownloadIcon(iconFormat: string) {
@@ -73,21 +74,9 @@ export class DownloadIconComponent {
     params = params.append('format', format);
 
     if (size) {
-      const sizeParam = size.toString();
-      params = params.append('size', sizeParam);
+      params = params.append('size', size.toString());
     }
 
-    this.http.get(
-      '/api/download/icon', {
-        params,
-        responseType: 'blob',
-        observe: 'response',
-      })
-      .subscribe((response) => {
-        const header = response.headers.get('Content-Disposition');
-        const filename = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(header)[1];
-
-        saveAs(response.body, filename);
-      });
+    this.apiService.download('/download/icon', {params});
   }
 }

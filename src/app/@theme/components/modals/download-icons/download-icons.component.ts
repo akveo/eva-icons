@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 // todo: uncomment when api will be implemented
-import { HttpClient } from '@angular/common/http';
 import { NbModalRef } from '@nebular/theme';
-import { saveAs } from 'file-saver';
+
+import { ApiService } from '../../../../@core/data/api.service';
 
 class IconsFormat {
   png?: boolean;
@@ -38,7 +38,7 @@ export class DownloadIconsComponent {
   };
 
   constructor(protected modalRef: NbModalRef<DownloadIconsComponent>,
-              private http: HttpClient) {
+              private apiService: ApiService) {
 
   }
 
@@ -76,17 +76,7 @@ export class DownloadIconsComponent {
   downloadIcons() {
     this.modalRef.hide();
 
-    // todo: uncomment when api will be implemented
-    this.http.get(
-      '/api/download/icons', {
-        observe: 'response',
-        responseType: 'blob',
-      })
-      .subscribe((response) => {
-        const header = response.headers.get('Content-Disposition');
-        const filename = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(header)[1];
-
-        saveAs(response.body, filename);
-      });
+    // todo: add download icons options
+    this.apiService.download('/download/icons');
   }
 }
