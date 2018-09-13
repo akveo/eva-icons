@@ -3,21 +3,46 @@ const path = require('path');
 
 class FileSystemHelper {
 
-  deleteFiles(desPath, removeFolder) {
-    if( fs.existsSync(desPath) ) {
-      fs.readdirSync(desPath).forEach((file) => {
-        const currentPath = path.join(desPath, file);
+  deleteFiles(srcPath, removeFolder) {
+    const deleteFilesRecursively = (fileOrFolderPath, shouldRemove) => {
+      if(fs.existsSync(fileOrFolderPath)) {
+        fs.readdirSync(fileOrFolderPath).forEach((file) => {
+          const currentPath = path.join(fileOrFolderPath, file);
 
-        if(fs.lstatSync(currentPath).isDirectory()) {
-          this.deleteFiles(currentPath, true);
-        } else {
-          fs.unlinkSync(currentPath);
+          if(fs.lstatSync(currentPath).isDirectory()) {
+            deleteFilesRecursively(currentPath, true);
+          } else {
+            fs.unlinkSync(currentPath);
+          }
+        });
+
+        if (shouldRemove) {
+          fs.rmdirSync(fileOrFolderPath);
         }
-      });
-      if (removeFolder) {
-        fs.rmdirSync(desPath);
       }
-    }
+    };
+
+    return new Promise((resolve, reject) => {
+      deleteFilesRecursively(srcPath, removeFolder);
+
+      if (removeFolder) {
+        if (fs.existsSync(srcPath)) {
+          reject({
+            message: 'The folder was not deleted'
+          });
+        } else {
+          resolve();
+        }
+      } else {
+        if (fs.readdirSync(srcPath).length === 0) {
+          resolve();
+        } else {
+          reject({
+            message: 'The folder not empty'
+          });
+        }
+      }
+    });
   }
 
   getSourceFiles(srcPath, extention) {
@@ -40,15 +65,15 @@ class FileSystemHelper {
 
   mkDirByPathSync(
     targetDir,
-    {
-      isRelativeToScript = false,
-    } = {}) {
+    { isRelativeToScript = false } = {})
+  {
     const sep = path.sep;
     const initDir = path.isAbsolute(targetDir) ? sep : '';
     const baseDir = isRelativeToScript ? __dirname : '.';
 
     return targetDir.split(sep).reduce((parentDir, childDir) => {
       const currentDir = path.resolve(baseDir, parentDir, childDir);
+
       try {
         fs.mkdirSync(currentDir);
       } catch (err) {
@@ -62,6 +87,7 @@ class FileSystemHelper {
         }
 
         const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
+
         if (!caughtErr || caughtErr && targetDir === currentDir) {
           throw err; // Throw if it's just the last created dir.
         }
@@ -69,6 +95,10 @@ class FileSystemHelper {
 
       return currentDir;
     }, initDir);
+  }
+
+  copy(srcPath, destPath) {
+
   }
 
   getExtension(fileName) {

@@ -1,11 +1,13 @@
 {
-  "formats": [
-    {
-      "format": "svg"
-    },
+  "convertOrResize": [
     {
       "format": "png",
       "size": ["16", "24", "32", "64", "128", "256", "512"]
+    }
+  ],
+  "copy": [
+    {
+      "format": "svg"
     },
     {
       "format": "fig"
@@ -15,5 +17,6 @@
     }
   ],
   "srcPath": "./eva-icons/source_icons",
-  "desPath": "./eva-icons/destination_icons"
+  "desPath": "./eva-icons/destination_icons",
+  "defaultExtension": "svg"
 }

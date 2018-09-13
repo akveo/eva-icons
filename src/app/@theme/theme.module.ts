@@ -13,7 +13,6 @@ import { DownloadIconsComponent } from './components/modals/download-icons/downl
 import evaServices from './services';
 // services
 
-
 import {
   NbMenuModule,
   NbLayoutModule,

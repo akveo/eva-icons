@@ -6,6 +6,11 @@ class GraphicsMagickHelper {
       .resize(seze, seze)
       .setFormat(format);
   }
+
+  resize(seze, srcPath) {
+    return gm(srcPath)
+      .resize(seze, seze);
+  }
 }
 
 module.exports = GraphicsMagickHelper;

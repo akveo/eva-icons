@@ -8,11 +8,33 @@ const GraphicsMagickHelper = require('./gm-helper');
 const fileSystemHelper = new FileSystemHelper();
 const graphicsMagickHelper = new GraphicsMagickHelper();
 
-// delete all files in destination folder
-fileSystemHelper.deleteFiles(config.desPath);
+const copy = () => {
+  return config.copy.map((copyFormat) => {
+    const pathFromCopy = path.join(config.srcPath, copyFormat.format);
+    const pathToCopy = path.join(config.desPath, copyFormat.format);
+
+    return fileSystemHelper.copy(pathFromCopy, pathToCopy);
+  });
+};
+const convertOrResize = () => {
+  return 'convertOrResize';
+};
+
+fileSystemHelper.deleteFiles(config.desPath)
+  .then(() => {
+    return Promise.all([copy(), convertOrResize()]);
+  })
+  .then((results) => {
+    console.log(results);
+  })
+  .catch((error) => {
+    const errorMessage = error && error.message ? error.message : `${error}, Smth went wrong`;
+
+    console.error(errorMessage);
+  });
 
 //
-fileSystemHelper.getSourceFiles(config.srcPath, 'svg')
+/*fileSystemHelper.getSourceFiles(config.srcPath, 'svg')
   .then((output) => {
     config.formats.forEach((formatItem) => {
       output.files.forEach((file, index) => {
@@ -29,33 +51,52 @@ fileSystemHelper.getSourceFiles(config.srcPath, 'svg')
         }
 
         if (formatItem.size && formatItem.size.length !== 0) {
-          formatItem.size.forEach((itemSize) => {
-            const desFolderPath = path.join(desPath, itemSize);
-            const desFilePath = path.join(
-              desFolderPath,
-              `${output.fileNames[index]}.${formatItem.format}`,
-            );
+          const maxSize = Math.max(...formatItem.size).toString();
 
-            fileSystemHelper.mkDirByPathSync(desFolderPath);
+          // convert and resize
+          const desFolderPath = path.join(desPath, maxSize);
+          const desFilePathMax = path.join(
+            desFolderPath,
+            `${output.fileNames[index]}.${formatItem.format}`,
+          );
 
-            const stream = graphicsMagickHelper.convertAndResize(
-              itemSize,
-              formatItem.format,
-              readableStream,
-            );
+          fileSystemHelper.mkDirByPathSync(desFolderPath);
 
-            stream.stream(function (err, stdout) {
-              if (err) {
-                throw err;
+          const convertAndResizeStream = graphicsMagickHelper.convertAndResize(
+            maxSize,
+            formatItem.format,
+            readableStream,
+          );
+          const writeStream = fs.createWriteStream(desFilePathMax);
+          const writableStream = convertAndResizeStream.stream().pipe(writeStream);
+
+          writableStream.on('finish', () => {
+            // resize
+            formatItem.size.forEach((itemSize) => {
+              if (itemSize === maxSize) {
+                return;
               }
 
+              const desFolderPath = path.join(desPath, itemSize);
+              const desFilePath = path.join(
+                desFolderPath,
+                `${output.fileNames[index]}.${formatItem.format}`,
+              );
+              const readableStream = fs.createReadStream(desFilePathMax);
+
+              fileSystemHelper.mkDirByPathSync(desFolderPath);
+
+              const resizeStream = graphicsMagickHelper.resize(
+                itemSize,
+                readableStream,
+              );
               const writeStream = fs.createWriteStream(desFilePath);
 
-              stdout.pipe(writeStream);
+              resizeStream.stream().pipe(writeStream);
             });
           });
         }
       });
     });
   })
-  .catch();
+  .catch();*/
