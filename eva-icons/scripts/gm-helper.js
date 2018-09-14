@@ -7,6 +7,11 @@ class GraphicsMagickHelper {
       .setFormat(format);
   }
 
+  convert(format, srcPath) {
+    return gm(srcPath)
+      .setFormat(format);
+  }
+
   resize(seze, srcPath) {
     return gm(srcPath)
       .resize(seze, seze);

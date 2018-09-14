@@ -1,8 +1,8 @@
 {
-  "convertOrResize": [
+  "convertOrResizeFormats": [
     {
       "format": "png",
-      "size": ["16", "24", "32", "64", "128", "256", "512"]
+      "size": ["64"]
     }
   ],
   "copy": [

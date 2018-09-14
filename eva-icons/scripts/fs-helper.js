@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 
 class FileSystemHelper {
 
-  deleteFiles(srcPath, removeFolder) {
+  remove(srcPath, removeFolder) {
     const deleteFilesRecursively = (fileOrFolderPath, shouldRemove) => {
       if(fs.existsSync(fileOrFolderPath)) {
         fs.readdirSync(fileOrFolderPath).forEach((file) => {
@@ -45,7 +45,7 @@ class FileSystemHelper {
     });
   }
 
-  getSourceFiles(srcPath, extention) {
+  getSourceFiles(srcPath) {
     return new Promise((resolve, reject) => {
       fs.readdir(srcPath, (err, files) => {
         if (err) {
@@ -54,7 +54,6 @@ class FileSystemHelper {
 
         const output = {
           files,
-          defaultExtension: extention,
           fileNames: files.map((file) => this.trimFileExtension(file))
         };
 
@@ -63,42 +62,20 @@ class FileSystemHelper {
     });
   }
 
-  mkDirByPathSync(
-    targetDir,
-    { isRelativeToScript = false } = {})
-  {
-    const sep = path.sep;
-    const initDir = path.isAbsolute(targetDir) ? sep : '';
-    const baseDir = isRelativeToScript ? __dirname : '.';
+  mkDirByPathSync(targetDir) {
+    if (fs.pathExistsSync(targetDir)) {
+      return;
+    }
 
-    return targetDir.split(sep).reduce((parentDir, childDir) => {
-      const currentDir = path.resolve(baseDir, parentDir, childDir);
-
-      try {
-        fs.mkdirSync(currentDir);
-      } catch (err) {
-        if (err.code === 'EEXIST') { // currentDir already exists!
-          return currentDir;
-        }
-
-        // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
-        if (err.code === 'ENOENT') { // Throw the original parentDir error on currentDir `ENOENT` failure.
-          throw new Error(`EACCES: permission denied, mkdir '${parentDir}'`);
-        }
-
-        const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
-
-        if (!caughtErr || caughtErr && targetDir === currentDir) {
-          throw err; // Throw if it's just the last created dir.
-        }
-      }
-
-      return currentDir;
-    }, initDir);
+    return fs.mkdirsSync(targetDir);
   }
 
-  copy(srcPath, destPath) {
+  copy(srcPath, desPath) {
+    if (fs.pathExistsSync(srcPath)) {
+      return fs.copy(srcPath, desPath);
+    }
 
+    return Promise.resolve();
   }
 
   getExtension(fileName) {
