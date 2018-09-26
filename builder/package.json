@@ -1,0 +1,43 @@
+{
+  "name": "eva-icons",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/eva.js",
+  "unpkg": "dist/eva.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:icons": "node ./scripts/index.js",
+    "build:dev": "npm run build:icons && npm run webpack",
+    "build:prod": "npm run build:icons && npm run webpack -- --config webpack.prod.js",
+    "build:fill": "cross-env ICON_TYPE=fill npm run webpack",
+    "build:outline": "cross-env ICON_TYPE=outline npm run webpack",
+    "webpack": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "archiver": "^3.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.2",
+    "cheerio": "^1.0.0-rc.2",
+    "cross-env": "^5.2.0",
+    "fs-extra": "^7.0.0",
+    "gm": "^1.23.1",
+    "html-minifier": "^3.5.8",
+    "lazy-require": "^2.2.0",
+    "svgo": "^1.1.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webfont": "^8.1.4",
+    "webpack": "^4.19.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
+  }
+}

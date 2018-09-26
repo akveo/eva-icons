@@ -2,8 +2,6 @@ import { RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CoreModule } from '../@core/core.module';
-
 // components
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,6 +15,10 @@ import { IconListComponent } from './components/icon-list/icon-list.component';
 import evaServices from './services';
 // services
 
+// pipes
+import { EvaIconsPipe } from './pipes/eva-icons.pipe';
+// pipes
+
 import {
   NbMenuModule,
   NbLayoutModule,
@@ -26,6 +28,10 @@ import {
   NbDialogModule,
   NbCheckboxModule,
 } from '@nebular/theme';
+
+const PIPES = [
+  EvaIconsPipe,
+];
 
 @NgModule({
   imports: [
@@ -37,7 +43,6 @@ import {
     NbOverlayModule,
     NbDialogModule,
     NbCheckboxModule,
-    CoreModule,
   ],
   declarations: [
     FooterComponent,
@@ -46,6 +51,8 @@ import {
     PageContainerComponent,
     ListViewSwitcherComponent,
     IconListComponent,
+
+    ...PIPES,
   ],
   exports: [
     RouterModule,
@@ -62,6 +69,8 @@ import {
     PageContainerComponent,
     ListViewSwitcherComponent,
     IconListComponent,
+
+    ...PIPES,
   ],
   entryComponents: [
     DownloadIconComponent,

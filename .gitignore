@@ -2,9 +2,11 @@
 /dist
 /tmp
 /out-tsc
+/package-build
 
 # dependencies
 /node_modules
+/builder/node_modules
 
 # IDEs and editors
 /.idea

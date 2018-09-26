@@ -14,12 +14,12 @@ export class HeaderComponent {
     {
       title: 'Outline',
       link: '/outline',
-      icon: 'nb-star',
+      icon: 'eva eva-star-outline',
     },
     {
       title: 'Fill',
       link: '/fill',
-      icon: 'nb-star',
+      icon: 'eva eva-star-outline',
     },
   ];
 

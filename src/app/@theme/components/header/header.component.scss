@@ -71,6 +71,10 @@
           padding: 0.5rem 1.625rem 0.5rem 1rem;
           display: block;
 
+          .menu-icon {
+            color: nb-theme(menu-item-fg);
+          }
+
           &:hover, &.active, &:focus {
             color: $primary;
             text-shadow: 0.5px 0 0 currentColor;
@@ -96,7 +100,7 @@
         }
 
         .menu-icon {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
         }
 
         .menu-title {
@@ -115,10 +119,6 @@
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     cursor: pointer;
-
-    i {
-      font-size: 1rem;
-    }
 
     span {
       margin-left: 1.25rem;

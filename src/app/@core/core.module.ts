@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { DataModule } from './data/data.module';
-import { EvaIconsPipe } from './pipes/eva-icons.pipe';
 
 const PIPES = [
-  EvaIconsPipe,
 ];
 
 const NB_CORE_PROVIDERS = [

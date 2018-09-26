@@ -1,7 +1,7 @@
 import { of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-import { icons } from 'eva-icons';
+import { icons } from '../../../../package-build/eva';
 
 @Injectable()
 export class IconService {

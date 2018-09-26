@@ -18,7 +18,8 @@
     "lint:ci": "npm run lint && npm run lint:styles",
     "e2e": "ng e2e",
     "prepush": "npm run lint:ci",
-    "icon:build": "node ./eva-icons/scripts"
+    "builder:prod": "cd ./builder && npm run build:prod",
+    "builder:dev": "cd ./builder && npm run build:dev"
   },
   "private": true,
   "dependencies": {
