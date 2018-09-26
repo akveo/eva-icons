@@ -30,6 +30,8 @@ $nb-themes: nb-register-theme((
   header-height: 4.25rem,
   header-fg: color-fg,
 
+  header-button-border: #dce4f2,
+
   menu-bg: transparent,
   menu-item-padding: 0.675rem 1rem,
   menu-item-fg: #d8e1f0,
@@ -55,5 +57,7 @@ $nb-themes: nb-register-theme((
   checkbox-checked-border-color: checkbox-checked-bg,
   checkbox-checked-checkmark: color-white,
 
-  format-name-fg: #6a7385
+  format-name-fg: #6a7385,
+
+
 ), eva, corporate);

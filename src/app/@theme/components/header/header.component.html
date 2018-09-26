@@ -1,7 +1,7 @@
 <div class="section left">
   <div class="logo">
     <a routerLink="/">Eva Icons</a>
-    <span class="version">V.{{ currentVersion }}</span>
+    <span class="version">V{{ currentVersion }}</span>
   </div>
   <iframe class="stars"
           src="https://ghbtns.com/github-btn.html?user=akveo&repo=nebular&type=star&count=true"
@@ -11,9 +11,14 @@
 </div>
 <div class="section right">
   <nb-menu [items]="mainMenu"></nb-menu>
-  <button class="btn btn-primary btn-download"
-          (click)="openIconsDowloadModal()">
-    <i class="nb-star"></i>
+  <a class="btn btn-header btn-npm">
+    <i class="npm-icon"></i>
+    <span>Npm</span>
+  </a>
+  <a class="btn btn-primary btn-download btn-header"
+     href="dist/eva-icons.zip"
+     download>
+    <i [innerHTML]="'download' | eva : 24 : 24 : '#ffffff' "></i>
     <span>Download</span>
-  </button>
+  </a>
 </div>

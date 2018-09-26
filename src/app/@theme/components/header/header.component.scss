@@ -1,6 +1,6 @@
 @import '../../../@theme/styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
-@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
   $right-section-width: nb-theme(settings-col-width);
@@ -106,7 +106,7 @@
     }
   }
 
-  .btn-download {
+  .btn-header {
     display: flex;
     align-items: center;
     margin-left: 2rem;
@@ -123,6 +123,29 @@
     span {
       margin-left: 1.25rem;
     }
+  }
+
+  .btn-npm {
+    color: nb-theme(color-fg);
+    margin-left: 4rem;
+    border: 1px solid nb-theme(header-button-border);
+    font-weight: nb-theme(font-weight-ultra-bold);
+
+    &:hover {
+      background-color: nb-theme(header-button-border);
+    }
+
+    span {
+      text-transform: uppercase;
+    }
+  }
+
+  .npm-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url('../../../../assets/img/npm.svg') no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
   }
 
   @include media-breakpoint-down(xl) {

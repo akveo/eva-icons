@@ -1,6 +1,6 @@
-@import '../../@theme/styles/themes';
+@import '../../styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
-@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
   $primary: nb-theme(color-primary);
@@ -37,10 +37,12 @@
     i {
       color: $primary;
       position: absolute;
-      font-size: 2.5rem;
-      font-weight: nb-theme(font-weight-bold);
       right: $search-input-padding-sides;
       top: calc(#{$search-input-padding-tops} - 0.25rem);
+
+      .eva-search-outline {
+        fill: $primary;
+      }
     }
   }
 

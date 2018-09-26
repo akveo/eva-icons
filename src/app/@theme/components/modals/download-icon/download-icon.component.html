@@ -1,7 +1,7 @@
 <nb-card>
   <nb-card-body>
     <div class="icon-container">
-      <i class="{{ selectedIcon }}"></i>
+      <i [innerHTML]="selectedIcon | eva: 80: 80"></i>
       <div class="icon-name">{{ selectedIcon }}</div>
     </div>
     <div class="download-controls">
@@ -9,23 +9,13 @@
            (click)="selectFormatAndDownloadIcon(item.format)"
            [class.active]="item.format === selectedFormat"
       >
-        <div class="download-control svg"
-             [ngClass]="item.format">
-        </div>
-        <div class="name">{{ item.title }}</div>
+        <a href="{{ item.href }}" download>
+          <div class="download-control"
+               [ngClass]="item.format">
+          </div>
+          <div class="name">{{ item.title }}</div>
+        </a>
       </div>
-    </div>
-
-    <div *ngIf="isDownloadPng" class="select-size-container">
-      <div class="title">Select a size (in pixels):</div>
-      <ul class="available-sizes">
-        <li *ngFor="let size of availablePngSizes"
-            (click)="selectPngSizeAndDownloadIcon(size)"
-            [class.active]="size === selectedPngSize"
-        >
-          {{ size }}
-        </li>
-      </ul>
     </div>
   </nb-card-body>
 </nb-card>

@@ -1,6 +1,6 @@
 @import '../../../../@theme/styles/themes';
 @import '~bootstrap/scss/mixins/breakpoints';
-@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
   $primary: nb-theme(color-primary);
@@ -24,12 +24,6 @@
     flex-direction: column;
     align-items: center;
     color: nb-theme(color-fg);
-
-    i {
-      font-size: 5rem;
-      font-weight: nb-theme(font-weight-bold);
-    }
-
   }
 
   .icon-name {
@@ -40,7 +34,7 @@
   .download-controls {
     display: flex;
     justify-content: center;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
     margin-bottom: 2.5rem;
 
     > div {
@@ -59,6 +53,10 @@
         .name {
           font-weight: 700;
         }
+      }
+
+      a {
+        text-decoration: none;
       }
     }
   }

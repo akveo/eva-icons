@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { EvoVersionService } from '../../services/version.service';
-import { NbMenuItem, NbModalService } from '@nebular/theme';
-
-import { DownloadIconsComponent } from '../modals/download-icons/download-icons.component';
+import { NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'eva-header',
@@ -25,19 +23,7 @@ export class HeaderComponent {
     },
   ];
 
-  constructor(private versionService: EvoVersionService,
-              private modalService: NbModalService) {
+  constructor(private versionService: EvoVersionService) {
     this.currentVersion = this.versionService.getEvoVersion();
-  }
-
-  openIconsDowloadModal() {
-    this.modalService.show(
-      DownloadIconsComponent,
-      {
-        hasBackdrop: true,
-        backdropClass: 'download-icons',
-        closeOnBackdropClick: true,
-      },
-    );
   }
 }

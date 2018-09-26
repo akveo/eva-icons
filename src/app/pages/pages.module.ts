@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 
 import { EvaThemeModule } from '../@theme/theme.module';
+import { CoreModule } from '../@core/core.module';
 
 import { OutlineComponent } from './outline/outline.component';
 import { FillComponent } from './fill/fill.component';
-import { IconListComponent } from './outline/icon-list/icon-list.component';
-import { ListViewSwitcherComponent } from './outline/list-view-switcher/list-view-switcher.component';
 
 
 @NgModule({
   imports: [
+    CoreModule,
     EvaThemeModule,
   ],
   declarations: [
     OutlineComponent,
     FillComponent,
-    IconListComponent,
-    ListViewSwitcherComponent,
   ],
 })
 export class PagesModule {

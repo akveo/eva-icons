@@ -2,11 +2,15 @@ import { RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CoreModule } from '../@core/core.module';
+
 // components
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DownloadIconComponent } from './components/modals/download-icon/download-icon.component';
-import { DownloadIconsComponent } from './components/modals/download-icons/download-icons.component';
+import { PageContainerComponent } from './components/page-container/page-container.component';
+import { ListViewSwitcherComponent } from './components/list-view-switcher/list-view-switcher.component';
+import { IconListComponent } from './components/icon-list/icon-list.component';
 // components
 
 // services
@@ -19,7 +23,7 @@ import {
   NbCardModule,
   NbThemeModule,
   NbOverlayModule,
-  NbModalModule,
+  NbDialogModule,
   NbCheckboxModule,
 } from '@nebular/theme';
 
@@ -31,14 +35,17 @@ import {
     NbLayoutModule,
     NbCardModule,
     NbOverlayModule,
-    NbModalModule,
+    NbDialogModule,
     NbCheckboxModule,
+    CoreModule,
   ],
   declarations: [
     FooterComponent,
     HeaderComponent,
     DownloadIconComponent,
-    DownloadIconsComponent,
+    PageContainerComponent,
+    ListViewSwitcherComponent,
+    IconListComponent,
   ],
   exports: [
     RouterModule,
@@ -46,16 +53,18 @@ import {
     NbMenuModule,
     NbLayoutModule,
     NbCardModule,
-    NbModalModule,
+    NbDialogModule,
     NbOverlayModule,
     NbCheckboxModule,
 
     FooterComponent,
     HeaderComponent,
+    PageContainerComponent,
+    ListViewSwitcherComponent,
+    IconListComponent,
   ],
   entryComponents: [
     DownloadIconComponent,
-    DownloadIconsComponent,
   ],
 })
 export class EvaThemeModule {
@@ -67,6 +76,7 @@ export class EvaThemeModule {
         ...evaServices,
         ...NbMenuModule.forRoot().providers,
         ...NbOverlayModule.forRoot().providers,
+        ...NbDialogModule.forRoot().providers,
       ],
     };
   }

@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'eva-fill',
-  templateUrl: './fill.component.html',
-  styleUrls: ['./fill.component.css'],
+  template: `
+    <eva-page-container [iconsType]="type"></eva-page-container>
+  `,
 })
-export class FillComponent implements OnInit {
+export class FillComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  type: string = 'fill';
 }

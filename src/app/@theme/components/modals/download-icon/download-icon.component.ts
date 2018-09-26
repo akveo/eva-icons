@@ -1,82 +1,70 @@
-import { Component, Input } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
-
-import { ApiService } from '../../../../@core/data/api.service';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'eva-download-icon',
   styleUrls: ['./download-icon.component.scss'],
   templateUrl: './download-icon.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DownloadIconComponent {
+export class DownloadIconComponent implements AfterViewInit {
 
-  @Input() selectedIcon: string;
-
-  selectedFormat: string;
-  selectedPngSize: number;
-  downloadControls: { format: string; title: string }[] = [
+  private defaultControlData = [
     {
       format: 'svg',
       title: 'SVG',
+      href: 'dist/type/svg/name.svg',
     },
     {
       format: 'png',
       title: 'PNG',
+      href: 'dist/type/png/64/name.png',
     },
     {
       format: 'sketch',
       title: 'Sketch',
+      href: 'dist/type/sketch/name.sketch', // dist/fill/png/64
     },
     {
       format: 'fig',
       title: 'FIG',
+      href: 'dist/type/fig/name.fig',
     },
   ];
-  availablePngSizes: number[] = [16, 24, 32, 64, 128, 256, 512];
-  isDownloadPng = false;
 
-  constructor(private apiService: ApiService) {
+  @Input() selectedIcon: string = '';
+  @Input() iconType: string = '';
+
+  matches = {
+    type: '',
+    name: '',
+  };
+  selectedFormat: string;
+  downloadControls: { format: string; title: string }[] = [ ];
+
+  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+
+  ngAfterViewInit() {
+    this.matches = {
+      type: this.iconType,
+      name: this.selectedIcon,
+    };
+    this.downloadControls = this.defaultControlData.map((item) => {
+      return {
+        ...item,
+        href: this.getIconHref(item.href),
+      };
+    });
+
+    this.changeDetectorRef.detectChanges();
+  }
+
+  getIconHref(href: string): string {
+    return href.replace(/type|name/gi, (matched) => {
+      return this.matches[matched];
+    });
   }
 
   selectFormatAndDownloadIcon(iconFormat: string) {
     this.selectedFormat = iconFormat;
-    this.isDownloadPng = iconFormat === 'png';
-
-    if (this.isDownloadPng) {
-      return;
-    }
-
-    this.downloadIcon({
-      icon: this.selectedIcon,
-      format: this.selectedFormat,
-    });
-  }
-
-  selectPngSizeAndDownloadIcon(pngSize: number) {
-    this.selectedPngSize = pngSize;
-
-    this.downloadIcon({
-      icon: this.selectedIcon,
-      format: this.selectedFormat,
-      size: this.selectedPngSize,
-    });
-  }
-
-  downloadIcon(option: {
-    icon: string;
-    format: string;
-    size?: number,
-  }) {
-    const { icon, format, size } = option;
-
-    let params = new HttpParams();
-    params = params.append('icon', icon);
-    params = params.append('format', format);
-
-    if (size) {
-      params = params.append('size', size.toString());
-    }
-
-    this.apiService.download('/download/icon', {params});
   }
 }

@@ -1,7 +1,7 @@
 <nb-card *ngFor="let icon of icons"
          (click)="clickIconHandler(icon)">
   <nb-card-body>
-    <i class="{{ icon }}"></i>
+    <i [innerHTML]="icon | eva"></i>
     <span *ngIf="isFullViewMode"
           class="icon-class">
       {{ icon }}
