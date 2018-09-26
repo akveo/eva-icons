@@ -12,22 +12,22 @@ export class DownloadIconComponent implements AfterViewInit {
     {
       format: 'svg',
       title: 'SVG',
-      href: 'dist/type/svg/name.svg',
+      href: 'package-build/type/svg/name.svg',
     },
     {
       format: 'png',
       title: 'PNG',
-      href: 'dist/type/png/64/name.png',
+      href: 'package-build/type/png/64/name.png',
     },
     {
       format: 'sketch',
       title: 'Sketch',
-      href: 'dist/type/sketch/name.sketch', // dist/fill/png/64
+      href: 'package-build/type/sketch/name.sketch',
     },
     {
       format: 'fig',
       title: 'FIG',
-      href: 'dist/type/fig/name.fig',
+      href: 'package-build/type/fig/name.fig',
     },
   ];
 

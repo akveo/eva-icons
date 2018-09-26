@@ -27,6 +27,7 @@ import {
   NbOverlayModule,
   NbDialogModule,
   NbCheckboxModule,
+  NbSpinnerModule,
 } from '@nebular/theme';
 
 const PIPES = [
@@ -43,6 +44,7 @@ const PIPES = [
     NbOverlayModule,
     NbDialogModule,
     NbCheckboxModule,
+    NbSpinnerModule,
   ],
   declarations: [
     FooterComponent,
@@ -63,6 +65,7 @@ const PIPES = [
     NbDialogModule,
     NbOverlayModule,
     NbCheckboxModule,
+    NbSpinnerModule,
 
     FooterComponent,
     HeaderComponent,
