@@ -18,7 +18,8 @@
 <nb-card class="fake-card"></nb-card>
 
 
-<div class="spinner-container"
+<div *ngIf="icons.length === 0"
+     class="spinner-container"
      [nbSpinner]="icons.length === 0"
      nbSpinnerStatus="primary"
      nbSpinnerSize="xxlarge">
