@@ -1,0 +1,28 @@
+{
+  "name": "eva-icons",
+  "version": "1.0.0",
+  "description": "Eva icons - amazing icons crafted with love by Akveo team",
+  "main": "eva.js",
+  "unpkg": "eva.min.js",
+  "files": [
+    "css/fonts",
+    "css/scss"
+  ],
+  "license": "MIT",
+  "author": "akveo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akveo/eva.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akveo/eva/issues"
+  },
+  "homepage": "https://github.com/akveo/eva#readme",
+  "keywords": [
+    "fonts",
+    "icon font",
+    "icons",
+    "nebular",
+    "web font"
+  ]
+}

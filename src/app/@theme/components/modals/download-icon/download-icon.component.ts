@@ -19,16 +19,6 @@ export class DownloadIconComponent implements AfterViewInit {
       title: 'PNG',
       href: 'package-build/type/png/64/name.png',
     },
-    {
-      format: 'sketch',
-      title: 'Sketch',
-      href: 'package-build/type/sketch/name.sketch',
-    },
-    {
-      format: 'fig',
-      title: 'FIG',
-      href: 'package-build/type/fig/name.fig',
-    },
   ];
 
   @Input() selectedIcon: string = '';
