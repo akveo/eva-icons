@@ -5,6 +5,7 @@ const optimize = (svg) => {
     plugins: [
       { convertShapeToPath: false },
       { mergePaths: false },
+      { inlineStyles: { onlyMatchedOnce: false } },
       { removeAttrs: { attrs: '(fill|stroke.*)' } },
       { removeTitle: true },
     ],
