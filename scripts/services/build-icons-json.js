@@ -11,7 +11,7 @@ const buildIconsJSON = (srcIcons, srcPath, folder) => {
   const outFileName = `${prefix}-icons.json`;
   const outFile = path.resolve(config.desPath, outFileName);
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const icons = buildIconsObject(srcIcons, getSvg(srcPath));
 
     console.log(`Building ${outFile}...`);

@@ -12,7 +12,7 @@ const buildSprite = (folder) => {
   const inFile = path.join(config.desPath, inFileName);
   const outFile = path.join(config.desPath, outFileName);
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     lazyRequire.sync(inFile, (error, icons) => {
       console.log(`Building ${outFile}...`);
 

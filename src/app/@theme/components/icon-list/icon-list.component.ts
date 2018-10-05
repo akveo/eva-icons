@@ -20,6 +20,7 @@ export class IconListComponent {
 
   @Input() icons: string[];
   @Input() view: string;
+  @Input() isMobileView: boolean = false;
 
   @Output() clickIcon: EventEmitter<string> = new EventEmitter();
 

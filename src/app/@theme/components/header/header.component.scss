@@ -1,5 +1,4 @@
 @import '../../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
@@ -17,10 +16,7 @@
 
   .section {
     display: flex;
-    padding: 0.875rem 0.5rem;
-
-    &.left {
-    }
+    padding: 0.875rem 1rem;
   }
 
   .logo {
@@ -30,14 +26,15 @@
     font-size: nb-theme(font-size-xlg);
 
     a {
+      margin-right: 0.5rem;
       color: $logo-fg;
       text-decoration: none !important;
       font-weight: bold;
     }
 
     .version {
+      display: inline;
       font-size: nb-theme(font-size);
-      display: none;
       font-weight: bold;
       color: $version-fg;
     }
@@ -156,19 +153,77 @@
     .logo {
       align-items: baseline;
       flex: 1 0 auto;
-
-      a {
-        margin-right: 0.5rem;
-      }
-      .version {
-        display: inline;
-      }
     }
   }
 
   @include media-breakpoint-up(is) {
     .section {
       padding: 0.875rem 1.125rem;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    display: block;
+    margin: 0;
+
+    .logo {
+      font-size: 1rem;
+    }
+
+    .section {
+      padding: 1.25rem 1rem;
+
+      &.right {
+        border-top: 1px solid nb-theme(header-section-border-color);
+        border-bottom: 1px solid nb-theme(header-section-border-color);
+      }
+    }
+
+    nb-menu /deep/ {
+      .menu-items {
+        justify-content: flex-start;
+      }
+
+      .menu-item {
+        margin-left: 1rem;
+
+        &:first-child {
+          margin-left: 0;
+
+          a {
+            padding: 0.5rem 0.75rem;
+          }
+        }
+
+        a {
+          padding: 0.5rem 0.75rem;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .active {
+          border: 1px solid $primary;
+        }
+
+        .menu-icon {
+          width: auto;
+          font-size: 1.5rem;
+        }
+      }
+
+       .menu-title {
+         display: none;
+       }
+    }
+
+    .btn-header {
+      margin-left: 0;
+    }
+
+    .btn-download {
+      display: none;
     }
   }
 }

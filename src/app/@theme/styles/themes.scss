@@ -29,6 +29,7 @@ $nb-themes: nb-register-theme((
   header-padding: 0 0,
   header-height: 4.25rem,
   header-fg: color-fg,
+  header-section-border-color: #f5f5f5,
 
   header-button-border: #dce4f2,
 
@@ -59,5 +60,7 @@ $nb-themes: nb-register-theme((
 
   format-name-fg: #6a7385,
 
+  popover-bg: color-white,
+  popover-fg: color-fg
 
 ), eva, corporate);

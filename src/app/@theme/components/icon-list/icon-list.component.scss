@@ -1,19 +1,10 @@
 @import '../../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
-  .spinner-container {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-  }
 
   nb-card {
     overflow: hidden;
@@ -82,6 +73,22 @@
 
     nb-card-body {
       display: none;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    &.only-icon-mode {
+      nb-card {
+        width: 25%;
+      }
+
+      nb-card-body {
+        padding: 1.5rem;
+
+        i {
+          font-size: 0;
+        }
+      }
     }
   }
 }

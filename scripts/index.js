@@ -11,6 +11,13 @@ const transformFiles = require('./services/transform-icons');
 const zip = require('./services/zip');
 const buildWebFont = require('./services/build-web-font');
 
+const copyPackageJson = () => {
+  const fileName = 'package.json';
+  const srcPath = path.join(__dirname, fileName);
+  const desPath = path.join(config.desPath, fileName);
+
+  return fileSystemHelper.copy(srcPath, desPath);
+};
 const copy = (srcPath, folder) => {
   return Promise.all(config.copy.map((copyFormat) => {
     const pathFromCopy = path.join(srcPath, copyFormat.format);
@@ -62,13 +69,7 @@ fileSystemHelper.remove(config.desPath, true)
       })
   })
   .then(() => buildWebFont())
-  .then(() => {
-    const fileName = 'package.json';
-    const srcPath = path.join(__dirname, fileName);
-    const desPath = path.join(config.desPath, fileName);
-
-    return fileSystemHelper.copy(srcPath, desPath);
-  })
+  .then(() => copyPackageJson())
   .catch((error) => {
     const errorMessage = error && error.message ? error.message : `${error}, Smth went wrong`;
 

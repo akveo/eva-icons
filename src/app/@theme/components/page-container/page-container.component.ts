@@ -1,16 +1,16 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
+import { NbDialogService, NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService } from '@nebular/theme';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
-import { IconService } from '../../../@core/data/icon.service';
+import { IconService, IconServiceData } from '../../../@core/data/icon.service';
 import { debounceTime, delay, map, mergeMap, takeWhile, tap } from 'rxjs/operators';
 import { DownloadIconComponent } from '../modals/download-icon/download-icon.component';
 
@@ -26,14 +26,31 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
   @Input() iconsType: string;
 
   icons: string[] = [];
+  message: string = '';
   view: string = 'full';
+  breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
+  breakpoints: any;
 
   @ViewChild('searchInput') searchInput: ElementRef;
 
   constructor(private iconService: IconService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private dialogService: NbDialogService) {
+              private dialogService: NbDialogService,
+              private breakpointService: NbMediaBreakpointsService,
+              private themeService: NbThemeService,
+              private changeDetectorRef: ChangeDetectorRef) {
+    this.breakpoints = this.breakpointService.getBreakpointsMap();
+
+    this.themeService.onMediaQueryChange()
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(([oldValue, newValue]) => {
+        this.breakpoint = newValue;
+
+        if (this.isMobileMode) {
+          this.changeView('icon');
+        }
+      });
   }
 
   ngAfterViewInit() {
@@ -55,8 +72,11 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
             this.iconService.getIconsData(this.iconsType);
         }),
       )
-      .subscribe((iconsData: string[]) => {
-        this.icons = iconsData;
+      .subscribe((iconsData: IconServiceData) => {
+        this.icons = iconsData.icons;
+        this.message = iconsData.message;
+
+        this.changeDetectorRef.markForCheck();
       });
 
     fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -79,11 +99,33 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
       });
   }
 
+  get noSearchResults() {
+    return (
+      this.message &&
+      this.icons.length === 0
+    );
+  }
+
+  get isLoading() {
+    return (
+      !this.message &&
+      this.icons.length === 0
+    );
+  }
+
+  get isMobileMode() {
+    return this.breakpoint.width <= this.breakpoints.is;
+  }
+
   changeView(viewMode) {
     this.view = viewMode;
   }
 
   clickIcon(icon) {
+    if (this.isMobileMode) {
+      return;
+    }
+
     const modalRef = this.dialogService.open(
       DownloadIconComponent,
       {

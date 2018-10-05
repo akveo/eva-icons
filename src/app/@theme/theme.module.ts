@@ -28,6 +28,7 @@ import {
   NbDialogModule,
   NbCheckboxModule,
   NbSpinnerModule,
+  NbPopoverModule,
 } from '@nebular/theme';
 
 const PIPES = [
@@ -45,6 +46,7 @@ const PIPES = [
     NbDialogModule,
     NbCheckboxModule,
     NbSpinnerModule,
+    NbPopoverModule,
   ],
   declarations: [
     FooterComponent,

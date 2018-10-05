@@ -1,12 +1,19 @@
 <nb-card *ngFor="let icon of icons"
          (click)="clickIconHandler(icon)">
-  <nb-card-body>
+  <nb-card-body *ngIf="isMobileView; else desctop"
+                [nbPopover]="icon">
     <i [innerHTML]="icon | eva"></i>
-    <span *ngIf="isFullViewMode"
-          class="icon-class">
+  </nb-card-body>
+
+  <ng-template #desctop>
+    <nb-card-body>
+      <i [innerHTML]="icon | eva"></i>
+      <span *ngIf="isFullViewMode"
+            class="icon-class">
       {{ icon }}
     </span>
-  </nb-card-body>
+    </nb-card-body>
+  </ng-template>
 </nb-card>
 
 <nb-card class="fake-card"></nb-card>
@@ -17,10 +24,3 @@
 <nb-card class="fake-card"></nb-card>
 <nb-card class="fake-card"></nb-card>
 
-
-<div *ngIf="icons.length === 0"
-     class="spinner-container"
-     [nbSpinner]="icons.length === 0"
-     nbSpinnerStatus="primary"
-     nbSpinnerSize="xxlarge">
-</div>

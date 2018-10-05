@@ -19,7 +19,7 @@ export class HeaderComponent {
     {
       title: 'Fill',
       link: '/fill',
-      icon: 'eva eva-star-outline',
+      icon: 'eva eva-star',
     },
   ];
 
