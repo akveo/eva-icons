@@ -1,5 +1,7 @@
-import { EvoVersionService } from './version.service';
+import { EvaVersionService } from './version.service';
+import { StickyElementService } from './sticky-element.service';
 
 export default [
-  EvoVersionService,
+  EvaVersionService,
+  StickyElementService,
 ];

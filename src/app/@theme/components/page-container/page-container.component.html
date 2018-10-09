@@ -9,8 +9,10 @@
          tabindex="-1"/>
 </div>
 
-<div class="icons">
-  <eva-list-view-switcher *ngIf="icons.length !== 0"
+<div class="icons" #iconsBlock>
+  <eva-list-view-switcher #listViewSwitcher
+                          class="eva-list-view-switcher"
+                          *ngIf="icons.length !== 0"
                           [view]="view"
                           (changeView)="changeView($event)">
   </eva-list-view-switcher>

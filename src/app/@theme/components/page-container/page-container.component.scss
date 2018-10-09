@@ -73,8 +73,7 @@
 
   eva-list-view-switcher {
     position: absolute;
-    left: 110%;
-    top: 25%;
+    left: calc(100% + 50px);
   }
 
   eva-icon-list {
@@ -103,7 +102,7 @@
     border-radius: 0.25rem;
   }
 
-  @include media-breakpoint-down(is) {
+  @include media-breakpoint-down(md) {
     padding-left: 1rem;
     padding-right: 1rem;
 
@@ -128,12 +127,12 @@
       }
     }
 
-    eva-list-view-switcher {
-      display: none;
-    }
-
     eva-icon-list {
       margin-top: 2rem;
+    }
+
+    eva-list-view-switcher {
+      display: none;
     }
   }
 }

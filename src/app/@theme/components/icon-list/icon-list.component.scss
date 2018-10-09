@@ -16,7 +16,9 @@
   }
 
   nb-card-body {
+    font-size: nb-theme(font-size-sm);
     display: flex;
+    flex-direction: column;
     align-items: center;
     white-space: nowrap;
     overflow: hidden;
@@ -38,10 +40,10 @@
     }
 
     nb-card-body {
-      padding: 2.25rem 1.25rem;
+      padding: 1rem 1.25rem;
 
       span {
-        margin-left: 1.5rem;
+        margin-top: 0.5rem;
       }
     }
   }
@@ -76,7 +78,11 @@
     }
   }
 
-  @include media-breakpoint-down(is) {
+  @include media-breakpoint-down(lg) {
+    nb-card-body {
+      font-size: nb-theme(font-size-xs);
+    }
+
     &.only-icon-mode {
       nb-card {
         width: 25%;
@@ -89,6 +95,12 @@
           font-size: 0;
         }
       }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    nb-card-body {
+      font-size: nb-theme(font-size-sm);
     }
   }
 }

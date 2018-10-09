@@ -162,7 +162,7 @@
     }
   }
 
-  @include media-breakpoint-down(is) {
+  @include media-breakpoint-down(lg) {
     display: block;
     margin: 0;
 
@@ -217,7 +217,9 @@
          display: none;
        }
     }
+  }
 
+  @include media-breakpoint-down(sm) {
     .btn-header {
       margin-left: 0;
     }

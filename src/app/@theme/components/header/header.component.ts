@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EvoVersionService } from '../../services/version.service';
+import { EvaVersionService } from '../../services/version.service';
 import { NbMenuItem } from '@nebular/theme';
 
 @Component({
@@ -23,7 +23,7 @@ export class HeaderComponent {
     },
   ];
 
-  constructor(private versionService: EvoVersionService) {
+  constructor(private versionService: EvaVersionService) {
     this.currentVersion = this.versionService.getEvoVersion();
   }
 }

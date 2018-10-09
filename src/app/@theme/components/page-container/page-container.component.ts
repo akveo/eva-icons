@@ -1,18 +1,24 @@
 import {
-  AfterViewInit, ChangeDetectorRef,
+  AfterViewInit,
   Component,
   ElementRef,
   Input,
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { NbDialogService, NbMediaBreakpoint, NbMediaBreakpointsService, NbThemeService } from '@nebular/theme';
+import {
+  NbDialogService,
+  NbMediaBreakpoint,
+  NbMediaBreakpointsService,
+  NbThemeService,
+} from '@nebular/theme';
 import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
 import { IconService, IconServiceData } from '../../../@core/data/icon.service';
 import { debounceTime, delay, map, mergeMap, takeWhile, tap } from 'rxjs/operators';
 import { DownloadIconComponent } from '../modals/download-icon/download-icon.component';
+import { StickyElementService } from '../../services/sticky-element.service';
 
 @Component({
   selector: 'eva-page-container',
@@ -23,6 +29,10 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
 
   private alive = true;
 
+  @ViewChild('listViewSwitcher', {read: ElementRef}) listViewSwitcher: ElementRef;
+  @ViewChild('searchInput') searchInput: ElementRef;
+  @ViewChild('iconsBlock') iconsElement: ElementRef;
+
   @Input() iconsType: string;
 
   icons: string[] = [];
@@ -31,15 +41,13 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
   breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
   breakpoints: any;
 
-  @ViewChild('searchInput') searchInput: ElementRef;
-
   constructor(private iconService: IconService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private dialogService: NbDialogService,
               private breakpointService: NbMediaBreakpointsService,
               private themeService: NbThemeService,
-              private changeDetectorRef: ChangeDetectorRef) {
+              private stickyElementService: StickyElementService) {
     this.breakpoints = this.breakpointService.getBreakpointsMap();
 
     this.themeService.onMediaQueryChange()
@@ -54,6 +62,13 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+    setTimeout(() => {
+      const listViewSwitcher = this.listViewSwitcher.nativeElement;
+      const iconsElement = this.iconsElement.nativeElement;
+
+      this.stickyElementService.setDomElementsAndInit(listViewSwitcher, iconsElement);
+    }, 100);
+
     this.activatedRoute.queryParams
       .pipe(
         takeWhile(() => this.alive),
@@ -76,7 +91,7 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
         this.icons = iconsData.icons;
         this.message = iconsData.message;
 
-        this.changeDetectorRef.markForCheck();
+        this.updateStickyElementPosition();
       });
 
     fromEvent(this.searchInput.nativeElement, 'keyup')
@@ -119,6 +134,8 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
 
   changeView(viewMode) {
     this.view = viewMode;
+
+    this.updateStickyElementPosition();
   }
 
   clickIcon(icon) {
@@ -138,6 +155,12 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
 
     componentInstance.selectedIcon = icon;
     componentInstance.iconType = this.iconsType;
+  }
+
+  updateStickyElementPosition() {
+    setTimeout(() => {
+      this.stickyElementService.makeAsSticky();
+    }, 60);
   }
 
   ngOnDestroy() {
