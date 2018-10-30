@@ -8,9 +8,10 @@
   ],
   "scripts": {
     "ng": "ng",
+    "ngh": "ngh",
     "start": "ng serve --port 3333 --host 0.0.0.0",
     "build": "ng build",
-    "build:prod": "npm run icons:prepare && npm run build -- --prod --aot",
+    "build:prod": "npm run icons:prepare && npm run build -- --prod --aot  --base-href '/eva-icons/'",
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint eva-icons --fix",
@@ -20,7 +21,8 @@
     "prepush": "npm run lint:ci",
     "build:icons": "node ./scripts/index.js",
     "icons:prepare": "npm run build:icons && webpack",
-    "publish": "npm publish --access=public package-build"
+    "publish": "npm publish --access=public package-build",
+    "gh-pages": "npm run build:prod && npm run ngh -- --dir ./dist"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +55,7 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-cli-ghpages": "^0.5.3",
     "archiver": "^3.0.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.2",

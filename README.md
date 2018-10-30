@@ -1,11 +1,11 @@
 <h1><img src="https://i.imgur.com/cXYo5bi.png"> Eva Icons</h1>
 
-**Eva Icons** is a pack of more than 480 beautifully crafted Open Source icons for common actions and items. Additionally Eva Icons support 4 animation types: `zoom`, `pulse`, `shake` and `flip`.  Download on desktop to use them in your digital products for Web, iOS and Android. Icons are provided in two visual types: `Fill` and `Outline` and in serveral formats, including `PNG`, `SVG`, `font`, `Sketch`, etc.
+**Eva Icons** is a pack of more than 480 beautifully crafted Open Source icons for common actions and items. Additionally Eva Icons supports 4 animation types: `zoom`, `pulse`, `shake` and `flip`.  Download on desktop to use them in your digital products for Web, iOS and Android. Icons are provided in two visual types: `Fill` and `Outline` and in serveral formats, including `PNG`, `SVG`, `font`, `Sketch`, etc.
 
 ## Download
-- [Complete Eva Icons Package](http://google.com)
+- [Complete Eva Icons Package](https://akveo.github.io/eva-icons/eva-icons.zip)
 - [NPM Package](https://www.npmjs.com/package/eva-icons)
-- you also can download icons one by one in `PNG` and `SVG` formats from [Eva Icons Website](http://google.com).
+- you also can download icons one by one in `PNG` and `SVG` formats from [Eva Icons Website](https://akveo.github.io/eva-icons/).
 
 ### CDN
 
@@ -68,7 +68,7 @@ import * as eva from 'eva-icons';
 
 ### Fonts
 
-Eva Icons are also avaialbe as a web font
+Eva Icons are also available as a Web Font.
 
 - Include the font css into your page:
 
