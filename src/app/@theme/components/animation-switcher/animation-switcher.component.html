@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let item of animationItems"
+      class="nav-item eva-parent-hover"
+      [class.active]="item.animationType === animation"
+      (click)="changeAnimationType(item.animationType)">
+    <i class="nav-menu-icon"
+       [innerHTML]="item.iconName | eva: { animationType: item.animationType }">
+    </i>
+    <span class="title">{{ item.title }}</span>
+  </li>
+</ul>

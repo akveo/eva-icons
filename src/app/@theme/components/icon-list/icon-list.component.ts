@@ -1,14 +1,20 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  HostBinding,
   Input,
+  OnDestroy,
   Output,
+  ViewChildren,
 } from '@angular/core';
-
-const FULL = 'full';
-const ICON = 'icon';
+import { takeWhile } from 'rxjs/operators';
+import { NbLayoutScrollService, NbPopoverDirective } from '@nebular/theme';
 
 @Component({
   selector: 'eva-icon-list',
@@ -16,24 +22,35 @@ const ICON = 'icon';
   styleUrls: ['./icon-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconListComponent {
+export class IconListComponent implements OnDestroy {
 
-  @Input() icons: string[];
-  @Input() view: string;
+  private alive = true;
+
+  @ViewChildren(NbPopoverDirective) popovers: NbPopoverDirective[];
+
+  @Input() icons: { name: string; order: number; }[];
+  @Input() isMobileView: boolean = false;
+  @Input() animationType: string;
 
   @Output() clickIcon: EventEmitter<string> = new EventEmitter();
 
-  @HostBinding('class.full-icon-mode')
-  get isFullViewMode() {
-    return this.view === FULL;
-  }
-
-  @HostBinding('class.only-icon-mode')
-  get isIconViewMode() {
-    return this.view === ICON;
+  constructor(private scrollService: NbLayoutScrollService) {
+      this.scrollService.onScroll()
+        .pipe(takeWhile(() => this.alive && this.isMobileView))
+        .subscribe(() => {
+          this.popovers.forEach((popover) => {
+            popover.hide();
+          });
+        });
   }
 
   clickIconHandler(icon: string) {
     this.clickIcon.emit(icon);
+  }
+
+  trackByFn = (_, item) => item.order;
+
+  ngOnDestroy() {
+    this.alive = false;
   }
 }

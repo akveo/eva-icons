@@ -1,3 +1,9 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -5,10 +11,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { EvaThemeModule } from './@theme/theme.module';
-import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './@core/core.module';
 import { AppComponent } from './app.component';
-import { PagesModule } from './pages/pages.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,9 +22,16 @@ import { PagesModule } from './pages/pages.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
-    PagesModule,
     HttpClientModule,
+    RouterModule.forRoot(
+      [
+        { path: '', component: AppComponent },
+        { path: '**', redirectTo: '' },
+      ],
+      {
+        useHash: true,
+      },
+    ),
 
     EvaThemeModule.forRoot(),
     CoreModule.forRoot(),

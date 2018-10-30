@@ -1,0 +1,29 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+$raleway-font-path: '/assets/fonts/raleway' !default;
+
+@font-face {
+  font-family: 'Raleway Medium';
+  src: url('#{$raleway-font-path}/Raleway-Medium.eot');
+  src: local('Raleway Medium'), local('Raleway-Medium'),
+  url('#{$raleway-font-path}/Raleway-Medium.eot?#iefix') format('embedded-opentype'),
+  url('#{$raleway-font-path}/Raleway-Medium.woff') format('woff'),
+  url('#{$raleway-font-path}/Raleway-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway Bold';
+  src: url('#{$raleway-font-path}/Raleway-Bold.eot');
+  src: local('Raleway Bold'), local('Raleway-Bold'),
+  url('#{$raleway-font-path}/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+  url('#{$raleway-font-path}/Raleway-Bold.woff') format('woff'),
+  url('#{$raleway-font-path}/Raleway-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}

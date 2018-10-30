@@ -1,6 +1,11 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import { Component } from '@angular/core';
-import { EvoVersionService } from '../../services/version.service';
-import { NbMenuItem } from '@nebular/theme';
+import { UrlService } from '../../../@core/data/service/url.service';
 
 @Component({
   selector: 'eva-header',
@@ -9,21 +14,9 @@ import { NbMenuItem } from '@nebular/theme';
 })
 export class HeaderComponent {
 
-  currentVersion: string;
-  mainMenu: NbMenuItem[] = [
-    {
-      title: 'Outline',
-      link: '/outline',
-      icon: 'nb-star',
-    },
-    {
-      title: 'Fill',
-      link: '/fill',
-      icon: 'nb-star',
-    },
-  ];
+  zipUrl: string;
 
-  constructor(private versionService: EvoVersionService) {
-    this.currentVersion = this.versionService.getEvoVersion();
+  constructor(private urlService: UrlService) {
+    this.zipUrl = this.urlService.getZippedIconsUrl();
   }
 }

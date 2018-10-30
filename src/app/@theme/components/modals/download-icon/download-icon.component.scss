@@ -1,22 +1,40 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 @import '../../../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
   $primary: nb-theme(color-primary);
   $white: nb-theme(color-white);
+  $separator-bg: #dde1eb;
+
+  display: block;
+  position: relative;
+
+  .close-icon {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: calc(100% + 2.25rem);
+  }
 
   nb-card {
-    width: 600px;
-    max-height: 620px;
+    width: 400px;
+    max-height: 481px;
+    font-family: nb-theme(font-main), sans-serif;
     background: $white;
-    border: 2px solid $primary;
-    border-radius: nb-theme(radius);
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 40px 0 rgba(51, 102, 255, 0.2);;
   }
 
   nb-card-body {
-    padding-top: 6.5rem;
-    padding-bottom: 4rem;
+    padding: 5.625rem 0 0;
+    border-radius: 0.75rem;
   }
 
   .icon-container {
@@ -28,14 +46,16 @@
 
   .icon-name {
     font-size: nb-theme(font-size-xlg);
-    margin-top: 1rem;
+    margin-top: 3.75rem;
   }
 
   .download-controls {
     display: flex;
     justify-content: center;
-    margin-top: 3.5rem;
-    margin-bottom: 2.5rem;
+    background-color: nb-theme(color-gray-bg);
+    border-top: 1px solid $separator-bg;
+    margin-top: 4.5rem;
+    padding: 2rem 0 1.875rem;
 
     > div {
       margin-left: 1.5rem;
@@ -45,27 +65,31 @@
         margin-left: 0;
       }
 
-      &:hover, &.active, &:active {
-        .download-control {
-          border-color: $primary;
-        }
-
-        .name {
-          font-weight: 700;
-        }
-      }
-
       a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 6.5rem;
+        height: 6.5rem;
+        padding-top: 1.25rem;
+        background-color: $white;
+        border-radius: 0.75rem;
         text-decoration: none;
+
+        &:hover {
+          background-color: rgba(51, 102, 255, 0.1);
+        }
+
+        &.active, &:active {
+          background-color: rgba(40, 77, 224, 0.2);
+        }
       }
     }
   }
 
   .download-control {
-    width: 3.5rem;
-    height: 3.5rem;
-    border: 1px solid nb-theme(form-control-border-color);
-    border-radius: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   .svg {
@@ -78,22 +102,13 @@
     background-position: 50% 50%;
   }
 
-  .sketch {
-    background: url('../../../../../assets/img/sketch.svg') no-repeat;
-    background-position: 50% 50%;
-  }
-
-  .fig {
-    background: url('../../../../../assets/img/figma.svg') no-repeat;
-    background-position: 50% 50%;
-  }
-
   .name {
+    font-family: 'Open Sans Extra Bold', sans-serif;
     font-size: nb-theme(font-size-sm);
-    font-weight: nb-theme(font-weight-bold);
-    color: nb-theme(format-name-fg);
+    font-weight: nb-theme(font-weight-ultra-bold);
+    color: nb-theme(color-primary);
     text-align: center;
-    margin-top: 0.75rem;
+    margin-top: 0.375rem;
   }
 
   .select-size-container {

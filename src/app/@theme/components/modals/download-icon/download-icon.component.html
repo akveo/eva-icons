@@ -1,7 +1,12 @@
+<div class="close-icon"
+     (click)="closeDialog()">
+  <i [innerHTML]="'close' | eva: { width: 36, height: 36, animationType: 'pulse' }"></i>
+</div>
+
 <nb-card>
   <nb-card-body>
     <div class="icon-container">
-      <i [innerHTML]="selectedIcon | eva: 80: 80"></i>
+      <i [innerHTML]="selectedIcon | eva: { width: 64, height: 64 }"></i>
       <div class="icon-name">{{ selectedIcon }}</div>
     </div>
     <div class="download-controls">

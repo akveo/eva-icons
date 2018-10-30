@@ -1,18 +1,20 @@
-<nb-card *ngFor="let icon of icons"
-         (click)="clickIconHandler(icon)">
-  <nb-card-body>
-    <i [innerHTML]="icon | eva"></i>
-    <span *ngIf="isFullViewMode"
-          class="icon-class">
-      {{ icon }}
-    </span>
+<nb-card *ngFor="let icon of icons; trackBy: trackByFn"
+         (click)="clickIconHandler(icon.name)">
+  <nb-card-body *ngIf="isMobileView; else desktop"
+                class="eva-parent-hover"
+                [nbPopover]="icon.name">
+    <i [innerHTML]="icon.name | eva: { width: '100%', height: '100%', animationType: animationType }"></i>
   </nb-card-body>
+
+  <ng-template #desktop>
+    <nb-card-body class="eva-parent-hover"
+                  [nbPopover]="icon.name"
+                  [nbPopoverMode]="'hint'">
+      <i [innerHTML]="icon.name | eva: { width: '100%', height: '100%', animationType: animationType }"></i>
+    </nb-card-body>
+  </ng-template>
 </nb-card>
 
 <nb-card class="fake-card"></nb-card>
 <nb-card class="fake-card"></nb-card>
-<nb-card class="fake-card"></nb-card>
-<nb-card class="fake-card"></nb-card>
-<nb-card class="fake-card"></nb-card>
-<nb-card class="fake-card"></nb-card>
-<nb-card class="fake-card"></nb-card>
+

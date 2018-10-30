@@ -1,27 +1,102 @@
-# EvaIcons
+<h1><img src="https://i.imgur.com/cXYo5bi.png"> Eva Icons</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
+**Eva Icons** is a pack of more than 480 beautifully crafted Open Source icons for common actions and items. Additionally Eva Icons support 4 animation types: `zoom`, `pulse`, `shake` and `flip`.  Download on desktop to use them in your digital products for Web, iOS and Android. Icons are provided in two visual types: `Fill` and `Outline` and in serveral formats, including `PNG`, `SVG`, `font`, `Sketch`, etc.
 
-## Development server
+## Download
+- [Complete Eva Icons Package](http://google.com)
+- [NPM Package](https://www.npmjs.com/package/eva-icons)
+- you also can download icons one by one in `PNG` and `SVG` formats from [Eva Icons Website](http://google.com).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### CDN
 
-## Code scaffolding
+Load from CDN in your project:
+```html
+<script src="https://unpkg.com/eva-icons"></script>
+```
+After including the script, `eva` will be available as a global variable.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### NPM
 
-## Build
+- Install the package:
+```
+npm i eva-icons
+``` 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Include it to your page:
+```html
+<script src="path/to/dist/eva-icons.js"></script>
+```
 
-## Running unit tests
+- Or require the package based (may vary depending on your build system):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```js
+const eva = require('eva-icons');
+```
 
-## Running end-to-end tests
+```js
+import * as eva from 'eva-icons';
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## How to use
 
-## Further help
+### JavaScript
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Add the `data-eva` attribute with the icon name to an element:
+
+```html
+<i data-eva="github"></i>
+```
+
+- Call `eva.replace();` to replace all elements with the `data-eva` data attribute with SVG elements. You can also pass some additional parameters to the `replace` method to modify the `replace` function behavior. 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <title></title>
+  <script src="https://unpkg.com/eva-icons"></script>
+  <body>
+  
+    <i data-eva="github"></i>
+
+    <script>
+      eva.replace()
+    </script>
+  </body>
+</html>
+```
+*Thanks to Feather Icons for the build process inspiration.*
+
+### Fonts
+
+Eva Icons are also avaialbe as a web font
+
+- Include the font css into your page:
+
+```html
+<link href="path/to/css/Eva-Icons.css">
+```
+- Add `eva` and `eva-icon` classes to an element:
+
+```html
+<i class="eva eva-github"></i>
+```
+
+We recommend using SVG icons due to better rendering and performance capabilities, [more details](https://css-tricks.com/icon-fonts-vs-svg/).
+
+## Documentation
+
+### `eva.replace({ ... })`
+
+Replaces all elements that have a `data-eva` attribute with SVG markup corresponding to the element's `data-eva` attribute value.
+## License
+[MIT](LICENSE.txt) license.
+
+## How can I support the developers?
+- Star our GitHub repo :star:
+- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
+- Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
+- Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
+
+## From Akveo
+Made with :heart: by [Akveo team](http://akveo.com?utm_source=github&utm_medium=nebular_readme). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
+We're always happy to receive your feedback!

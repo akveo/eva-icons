@@ -1,5 +1,10 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 @import '../../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
@@ -7,22 +12,28 @@
   $social-fg: nb-theme(color-fg-icon);
   $title-fg: nb-theme(color-fg);
 
+  font-family: 'Open Sans SemiBold', sans-serif;
+  font-weight: nb-theme(font-weight-bold);
   display: flex;
   flex: 1;
   flex-wrap: wrap;
-  padding-top: 1.25rem;
-  justify-content: space-between;
+  padding-top: 2.75rem;
+  justify-content: flex-start;
 
   > div {
     display: flex;
     margin-right: 0;
+    margin-bottom: 2rem;
     justify-content: center;
     width: 100%;
+
     &:last-child {
       margin-right: 0;
+      margin-bottom: 0;
     }
 
     a {
+      font-size: nb-theme(font-size-sm);
       color: $text-fg;
     }
 
@@ -33,26 +44,32 @@
 
     li {
       display: flex;
-      margin-bottom: 1.375rem;
+      margin-bottom: 1.5rem;
       justify-content: center;
       align-items: center;
       text-align: center;
-    }
 
-    &.logo {
-      display: none;
+      &:first-child {
+        margin-bottom: 1.75rem;
+      }
     }
 
     .title {
       color: $title-fg;
-      font-size: 1.125rem;
-      line-height: 1.375rem;
     }
 
     .copy {
-      color: $text-fg;
+      $copy-color: #535b6c;
+
+      color: $copy-color;
       display: list-item;
-      font-size: 0.75rem;
+      font-size: 0.66rem;
+      line-height: 1.75;
+
+      a {
+        font-size: 0.65rem;
+        color: $copy-color;
+      }
     }
 
     .social {
@@ -60,22 +77,47 @@
       flex-direction: row;
 
       a {
-        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: $social-fg;
+        border-radius: 6px;
         text-decoration: none;
-        color: $social-fg;
         margin-right: 1rem;
+        line-height: 0.5;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
 
   > div.logo {
-    display: none;
+    margin-bottom: 3.125rem;
+
+     a {
+       width: 5.5rem;
+       height: 5.5rem;
+     }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @include media-breakpoint-up(md) {
+    > div.logo {
+      display: none;
+    }
+
     > div {
       justify-content: flex-start;
-      margin-right: 2rem;
+      margin-right: 1.5rem;
+      margin-bottom: 0;
       width: auto;
 
       li {
@@ -84,6 +126,14 @@
         text-align: left;
       }
     }
+
+    .company-info {
+      margin-right: 12.25rem;
+    }
+
+    .social-container {
+      margin-right: 8.375rem;
+    }
   }
 
   @include media-breakpoint-up(lg) {
@@ -91,10 +141,13 @@
       display: flex;
       flex-direction: column;
       margin-top: 0;
+      margin-bottom: 0;
       text-align: center;
-      img {
-        max-width: 9rem;
-      }
     }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

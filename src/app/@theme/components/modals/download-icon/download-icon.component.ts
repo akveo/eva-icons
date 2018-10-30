@@ -1,4 +1,12 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { UrlService } from '../../../../@core/data/service/url.service';
+import { NbDialogRef } from '@nebular/theme';
 
 @Component({
   selector: 'eva-download-icon',
@@ -8,60 +16,25 @@ import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, I
 })
 export class DownloadIconComponent implements AfterViewInit {
 
-  private defaultControlData = [
-    {
-      format: 'svg',
-      title: 'SVG',
-      href: 'dist/type/svg/name.svg',
-    },
-    {
-      format: 'png',
-      title: 'PNG',
-      href: 'dist/type/png/64/name.png',
-    },
-    {
-      format: 'sketch',
-      title: 'Sketch',
-      href: 'dist/type/sketch/name.sketch', // dist/fill/png/64
-    },
-    {
-      format: 'fig',
-      title: 'FIG',
-      href: 'dist/type/fig/name.fig',
-    },
-  ];
-
   @Input() selectedIcon: string = '';
   @Input() iconType: string = '';
 
-  matches = {
-    type: '',
-    name: '',
-  };
   selectedFormat: string;
-  downloadControls: { format: string; title: string }[] = [ ];
+  downloadControls: { format: string; title: string }[] = [];
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              private urlService: UrlService,
+              protected dialogRef: NbDialogRef<DownloadIconComponent>) {}
 
   ngAfterViewInit() {
-    this.matches = {
-      type: this.iconType,
-      name: this.selectedIcon,
-    };
-    this.downloadControls = this.defaultControlData.map((item) => {
-      return {
-        ...item,
-        href: this.getIconHref(item.href),
-      };
-    });
+    this.downloadControls =
+      this.urlService.getDownloadItemsDate(this.iconType, this.selectedIcon);
 
     this.changeDetectorRef.detectChanges();
   }
 
-  getIconHref(href: string): string {
-    return href.replace(/type|name/gi, (matched) => {
-      return this.matches[matched];
-    });
+  closeDialog() {
+    this.dialogRef.close();
   }
 
   selectFormatAndDownloadIcon(iconFormat: string) {

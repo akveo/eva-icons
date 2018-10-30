@@ -1,5 +1,14 @@
-import { EvoVersionService } from './version.service';
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
 
-export default [
-  EvoVersionService,
+import { EvaVersionService } from './version.service';
+import { DialogStateService } from './dialog-state.service';
+
+
+export const evaServices = [
+  EvaVersionService,
+  DialogStateService,
 ];

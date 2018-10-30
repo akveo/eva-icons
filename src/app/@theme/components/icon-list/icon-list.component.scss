@@ -1,67 +1,51 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 @import '../../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
+  $body-size: 6rem;
+
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   nb-card {
-    overflow: hidden;
     cursor: pointer;
+    border: none;
+    margin-bottom: 3rem;
+    margin-right: calc((100% - 8 * #{$body-size}) / 7);
 
-    &:hover {
-      background-color: nb-theme(list-icon-item-bg);
+    &:nth-child(8n) {
+      margin-right: 0;
     }
   }
 
   nb-card-body {
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: nb-theme(list-icon-item-fg);
+    width: $body-size;
+    height: $body-size;
+    line-height: 3.25;
+    text-align: center;
+    border: 1px solid #f6f7fa;
+    border-radius: 0.25rem;
 
     i {
-      font-size: 1.5rem;
-    }
-  }
-
-  &.full-icon-mode {
-    nb-card {
-      width: 24%;
-
-      &:hover {
-        border-color: nb-theme(list-icon-item-bg);
-      }
+      fill: #5670a1;
+      display: inline-block;
+      width: 1.625rem;
+      height: 1.625rem;
     }
 
-    nb-card-body {
-      padding: 2.25rem 1.25rem;
-
-      span {
-        margin-left: 1.5rem;
-      }
-    }
-  }
-
-  &.only-icon-mode {
-    justify-content: space-around;
-
-    nb-card {
-      width: 12%;
+    &:hover {
       border: none;
-      align-items: center;
-      border-radius: 0.25rem;
-    }
-
-    nb-card-body {
-      padding: 3.125rem 1.25rem;
+      box-shadow: 0 8px 24px 0 rgba(237, 240, 245, 0.5);
 
       i {
-        font-weight: nb-theme(font-weight-bold);
+        fill: nb-theme(color-primary);
       }
     }
   }
@@ -74,6 +58,79 @@
 
     nb-card-body {
       display: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    $body-size: 7rem;
+
+    nb-card {
+      margin-right: calc((100% - 4 * #{$body-size}) / 3);
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+
+    nb-card-body {
+      width: $body-size;
+      height: $body-size;
+      line-height: 4.25;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    $body-size: 4.625rem;
+
+    nb-card {
+      margin-bottom: 2.5rem;
+      margin-right: calc((100% - 4 * #{$body-size}) / 3);
+    }
+
+    nb-card-body {
+      width: $body-size;
+      height: $body-size;
+      line-height: 2;
+
+      i {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover {
+        i {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 315px) and (max-width: 370px) {
+    $body-size: 4rem;
+
+    nb-card {
+      margin-bottom: 2.5rem;
+      margin-right: calc((100% - 4 * #{$body-size}) / 3);
+    }
+
+    nb-card-body {
+      width: $body-size;
+      height: $body-size;
+      padding: 1rem;
+      line-height: 1.8;
+
+      i {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &:hover {
+        i {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
     }
   }
 }

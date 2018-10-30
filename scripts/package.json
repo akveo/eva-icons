@@ -1,0 +1,29 @@
+{
+  "name": "eva-icons",
+  "version": "0.0.2",
+  "description": "Eva Icons - beautifully crafted Open Source UI icons for common actions and items.",
+  "main": "eva.js",
+  "unpkg": "eva.min.js",
+  "files": [
+    "css/fonts",
+    "css/scss"
+  ],
+  "license": "MIT",
+  "author": "akveo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akveo/eva.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akveo/eva/issues"
+  },
+  "homepage": "https://github.com/akveo/eva#readme",
+  "keywords": [
+    "fonts",
+    "icon font",
+    "icons",
+    "nebular",
+    "akveo",
+    "web font"
+  ]
+}

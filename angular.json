@@ -7,25 +7,25 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "preserveSymlinks": true,
-            "outputPath": "dist/eva-icons",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "**/*", "input": "package-build/fill", "output": "./fill" },
+              { "glob": "**/*", "input": "package-build/outline", "output": "./outline" },
+              { "glob": "**/*.zip", "input": "package-build/", "output": "./" }
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/nebular-icons/scss/nebular-icons.scss",
               "src/app/@theme/styles/styles.scss"
             ],
             "scripts": []
@@ -53,8 +53,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "eva-icons:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "browserTarget": "eva-icons:build"
           },
           "configurations": {
             "production": {
@@ -77,7 +76,6 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/nebular-icons/scss/nebular-icons.scss",
               "src/app/@theme/styles/styles.scss"
             ],
             "scripts": [],
@@ -132,7 +130,11 @@
   "defaultProject": "eva-icons",
   "schematics": {
     "@schematics/angular:component": {
+      "prefix": "app",
       "styleext": "scss"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
     }
   }
 }

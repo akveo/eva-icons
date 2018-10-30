@@ -1,0 +1,127 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+.eva-animation {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.eva-infinite {
+  animation-iteration-count: infinite;
+}
+
+.eva-icon-shake {
+  animation-name: eva-shake;
+}
+
+.eva-icon-zoom {
+  animation-name: eva-zoomIn;
+}
+
+.eva-icon-pulse {
+  animation-name: eva-pulse;
+}
+
+.eva-icon-flip {
+  animation-name: eva-flipInY;
+}
+
+.eva-hover {
+  display: inline-block;
+}
+
+.eva-hover, .eva-parent-hover {
+  &:hover {
+    .eva-icon-hover-shake {
+      animation-name: eva-shake;
+    }
+
+    .eva-icon-hover-zoom {
+      animation-name: eva-zoomIn;
+    }
+
+    .eva-icon-hover-pulse {
+      animation-name: eva-pulse;
+    }
+
+    .eva-icon-hover-flip {
+      animation-name: eva-flipInY;
+    }
+  }
+}
+
+@keyframes eva-flipInY {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
+}
+
+@keyframes eva-shake {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-3px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+@keyframes eva-pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes eva-zoomIn {
+  from {
+    opacity: 1;
+    transform: scale3d(0.5, 0.5, 0.5);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

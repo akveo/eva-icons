@@ -1,10 +1,10 @@
-<nb-layout [withScroll]="true">
+<nb-layout [class.blur]="isOpenDialog" [withScroll]="true">
   <nb-layout-header>
     <eva-header></eva-header>
   </nb-layout-header>
 
   <nb-layout-column>
-    <router-outlet></router-outlet>
+    <eva-page-container></eva-page-container>
   </nb-layout-column>
 
   <nb-layout-footer fixed>

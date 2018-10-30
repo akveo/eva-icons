@@ -1,0 +1,84 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@import '../../../@theme/styles/themes';
+@import '~@nebular/theme/styles/global/breakpoints';
+
+@include nb-install-component() {
+  $primary: nb-theme(color-primary);
+  $item-color: #a7b4cc;
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    cursor: pointer;
+    align-items: baseline;
+    font-size: nb-theme(font-size-sm);
+    color: $item-color;
+
+    &:not(:first-child) {
+      margin-left: 1.75rem;
+    }
+
+    &:hover, &.active, &:focus {
+      color: $primary;
+      text-shadow: 0.5px 0 0 currentColor;
+      font-weight: normal;
+      outline: none!important;
+
+      .nav-menu-icon {
+        fill: $primary;
+      }
+    }
+
+    .nav-menu-icon {
+      margin-right: 0.5rem;
+      fill: $item-color;
+    }
+
+    span {
+      font-size: nb-theme(font-size-sm);
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    a {
+      padding: 0.5rem 0.75rem;
+
+      &.active {
+        border-radius: nb-theme(menu-submenu-item-border-radius);
+        border: 1px solid $primary;
+      }
+
+      .nav-menu-icon {
+        margin: 0 0.25rem;
+      }
+
+      &::after {
+        display: none;
+      }
+
+      span {
+        display: none;
+      }
+    }
+
+    .nav-menu-icon {
+      margin: 0;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .title {
+      display: none;
+    }
+  }
+}

@@ -1,5 +1,10 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 @import '../../../@theme/styles/themes';
-@import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
@@ -7,168 +12,265 @@
   $logo-fg: nb-theme(header-fg);
   $version-fg: nb-theme(color-primary);
   $primary: nb-theme(color-primary);
+  $social-color: #a7b4cc;
+  $social-hover: #eef3ff;
+  $social-active: #d4dbf9;
 
   display: flex;
   flex: 1 0 auto;
   flex-direction: row;
   align-items: center;
-  margin: 0 7rem;
+  margin: 0;
   justify-content: space-between;
 
   .section {
     display: flex;
-    padding: 0.875rem 0.5rem;
 
     &.left {
-    }
-  }
-
-  .logo {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: row;
-    font-size: nb-theme(font-size-xlg);
-
-    a {
-      color: $logo-fg;
-      text-decoration: none !important;
-      font-weight: bold;
+      display: flex;
+      margin-top: 1.5rem;
+      color: $social-color;
+      font-family: 'Open Sans', sans-serif;
     }
 
-    .version {
-      font-size: nb-theme(font-size);
-      display: none;
-      font-weight: bold;
-      color: $version-fg;
+    &.right {
+      align-items: center;
     }
   }
 
   .stars {
     width: 95px;
     height: 20px;
-    margin-left: 3rem;
-    align-self: flex-end;
+    margin-right: 1.5rem;
+    margin-top: 1.625rem;
   }
 
-  /deep/ nb-menu {
-    flex: 1;
+  .social-group {
+    display: flex;
+    align-items: center;
+    margin-left: 2.25rem;
 
-    .menu-items {
+    i {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    a {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      color: $social-color;
+      text-transform: none;
+      text-decoration: none;
+      margin-left: 1.75rem;
+      margin-top: 0;
 
-      .menu-item {
-        border: none;
+      &:first-child {
+        margin-left: 0;
 
-        &:first-child a {
-          padding-left: 0;
-        }
-
-        a {
-          position: relative;
-          font-size: nb-theme(font-size-sm);
-          color: nb-theme(menu-item-fg);
-          padding: 0.5rem 1.625rem 0.5rem 1rem;
-          display: block;
-
-          &:hover, &.active, &:focus {
-            color: $primary;
-            text-shadow: 0.5px 0 0 currentColor;
-            font-weight: normal;
-            outline: none!important;
-
-            .menu-icon {
-              color: $primary;
-            }
-          }
-
-          &.active {
-            &::after {
-              content: '';
-              position: absolute;
-              border: 2px solid $primary;
-              width: 100%;
-              left: 0;
-              bottom: 0;
-              border-radius: nb-theme(radius);
-            }
-          }
-        }
-
-        .menu-icon {
-          font-size: 1.5rem;
-        }
-
-        .menu-title {
-          vertical-align: super;
+        i {
+          line-height: inherit;
         }
       }
+
+      i {
+        fill: $social-color;
+        line-height: 0.5;
+      }
+
+      &:hover {
+        i {
+          fill: $primary;
+        }
+
+        color: $primary;
+      }
+    }
+
+    span {
+      margin-left: 0.5rem;
     }
   }
 
   .btn-header {
     display: flex;
     align-items: center;
-    margin-left: 2rem;
-    color: nb-theme(color-white);
-    font-size: nb-theme(font-size-xs);
-    padding: 0.5rem 1rem;
+    margin-top: 1.5rem;
+    color: $primary;
+    background-color: transparent;
+    font-family: 'Open Sans Bold', sans-serif;
+    font-weight: nb-theme(font-weight-ultra-bold);
+    padding: 0.875rem;
+    border: 1px solid nb-theme(color-gray-bg);
     border-radius: 0.25rem;
     cursor: pointer;
+  }
+
+  .btn-download {
+    position: relative;
+
+    .download-items-container {
+      display: none;
+    }
+
+    span {
+      padding: 0 0.75rem;
+    }
 
     i {
-      font-size: 1rem;
+      fill: $primary;
     }
-
-    span {
-      margin-left: 1.25rem;
-    }
-  }
-
-  .btn-npm {
-    color: nb-theme(color-fg);
-    margin-left: 4rem;
-    border: 1px solid nb-theme(header-button-border);
-    font-weight: nb-theme(font-weight-ultra-bold);
 
     &:hover {
-      background-color: nb-theme(header-button-border);
-    }
+      color: nb-theme(color-white);
+      box-shadow: none;
+      background-color: $primary;
 
-    span {
-      text-transform: uppercase;
+      i {
+        fill: nb-theme(color-white);
+      }
+
+      .download-items-container {
+        display: block;
+        padding-top: 0.625rem;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        left: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0.625rem 0;
+        background-color: $primary;
+        box-shadow: 0 6px 10px 0 rgba(51, 102, 255, 0.16);
+        border-radius: 0.25rem;
+
+        li {
+          list-style: none;
+
+
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            text-transform: none;
+            padding: 1rem;
+            font-family: 'Open Sans SemiBold', sans-serif;
+            color: nb-theme(color-white);
+
+            &:hover {
+              background-color: #598bff;
+            }
+
+            &.active, &:active {
+              background-color: #284de0;
+            }
+          }
+        }
+      }
     }
   }
 
-  .npm-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    background: url('../../../../assets/img/npm.svg') no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+  .desktop {
+    display: inherit;
   }
 
-  @include media-breakpoint-down(xl) {
-    margin: 0 1rem;
+  .mobile {
+    display: none;
   }
 
   @include media-breakpoint-up(sm) {
     .logo {
       align-items: baseline;
       flex: 1 0 auto;
+    }
+  }
 
-      a {
-        margin-right: 0.5rem;
-      }
-      .version {
-        display: inline;
+  @include media-breakpoint-down(xl) {
+    margin: 0 1rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    .social-group {
+      span {
+        display: none;
       }
     }
   }
 
-  @include media-breakpoint-up(is) {
+  @include media-breakpoint-down(sm) {
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: inherit;
+    }
+
+    .stars {
+      margin-top: 0;
+      margin-right: 0;
+    }
+
     .section {
-      padding: 0.875rem 1.125rem;
+      margin-top: 1rem;
+
+      &.left {
+        margin-top: 0;
+
+        a {
+          display: none;
+        }
+      }
+
+      &.right {
+        .social-group {
+          margin-right: 0;
+          margin-left: 0;
+
+          a {
+            margin-left: 0;
+            padding: 0.625rem;
+          }
+
+          i {
+            width: 2rem;
+            height: 2rem;
+          }
+
+          span {
+            display: none;
+          }
+
+          .github {
+            i {
+              width: 1.75rem;
+              height: 1.75rem;
+            }
+          }
+        }
+      }
+    }
+
+    .btn-header {
+      margin-left: 0;
+    }
+
+    .btn-download {
+      display: none;
+    }
+  }
+
+  @media (min-width: 315px) and (max-width: 370px) {
+    .section {
+      &.right {
+        .social-group {
+          a {
+            margin-left: 0.5rem;
+            padding: 0.5rem;
+          }
+        }
+      }
     }
   }
 }

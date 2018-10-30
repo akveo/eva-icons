@@ -1,24 +1,65 @@
 <div class="section left">
-  <div class="logo">
-    <a routerLink="/">Eva Icons</a>
-    <span class="version">V{{ currentVersion }}</span>
-  </div>
-  <iframe class="stars"
-          src="https://ghbtns.com/github-btn.html?user=akveo&repo=nebular&type=star&count=true"
+  <iframe class="stars mobile"
+          src="https://ghbtns.com/github-btn.html?user=akveo&repo=eva-icons&type=star&count=true"
           frameborder="0"
           scrolling="0">
   </iframe>
+  <span class="desktop">Support us on:</span>
+  <div class="social-group">
+    <a href="https://twitter.com/akveo_inc" target="_blank" class="social twitter">
+      <i [innerHTML]="'twitter-outline' | eva: { width: '100%', height: '100%' }"></i>
+      <span>Twitter</span>
+    </a>
+    <a href="#" target="_blank" class="social github">
+      <i [innerHTML]="'behance-outline' | eva: { width: '100%', height: '100%' }"></i>
+      <span>Behance</span>
+    </a>
+    <a href="#" target="_blank" class="social github">
+      <i [innerHTML]="'github' | eva: { width: '100%', height: '100%' }"></i>
+      <span>GitHub</span>
+    </a>
+  </div>
 </div>
 <div class="section right">
-  <nb-menu [items]="mainMenu"></nb-menu>
-  <a class="btn btn-header btn-npm">
-    <i class="npm-icon"></i>
-    <span>Npm</span>
-  </a>
-  <a class="btn btn-primary btn-download btn-header"
-     href="dist/eva-icons.zip"
-     download>
-    <i [innerHTML]="'download' | eva : 24 : 24 : '#ffffff' "></i>
+  <div class="social-group mobile">
+    <a href="https://twitter.com/akveo_inc" target="_blank" class="social twitter">
+      <i [innerHTML]="'twitter-outline' | eva: { width: '100%', height: '100%' }"></i>
+      <span>Twitter</span>
+    </a>
+    <a href="#" target="_blank" class="social github">
+      <i [innerHTML]="'behance-outline' | eva: { width: '100%', height: '100%' }"></i>
+      <span>Behance</span>
+    </a>
+    <a href="#" target="_blank" class="social github">
+      <i [innerHTML]="'github' | eva: { width: '100%', height: '100%' }"></i>
+      <span>GitHub</span>
+    </a>
+  </div>
+  <iframe class="stars desktop"
+          src="https://ghbtns.com/github-btn.html?user=akveo&repo=eva-icons&type=star&count=true"
+          frameborder="0"
+          scrolling="0">
+  </iframe>
+  <div class="btn btn-primary btn-download btn-header">
+    <i [innerHTML]="'download' | eva: { width: 24, height: 24 }"></i>
     <span>Download</span>
-  </a>
+    <div class="download-items-container">
+      <ul>
+        <li>
+          <a href="{{ zipUrl }}"
+             download>
+            <i [innerHTML]="'cube-outline' | eva: { width: 24, height: 24, fill: '#ffffff' }"></i>
+            <span>Design Pack</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ zipUrl }}"
+             download>
+            <i [innerHTML]="'npm' | eva: { width: 24, height: 24, fill: '#ffffff' }"></i>
+            <span>NPM</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

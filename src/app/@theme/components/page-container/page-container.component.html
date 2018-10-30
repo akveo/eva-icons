@@ -1,22 +1,61 @@
-<h1>Eva icons</h1>
+<div class="title">
+  <i class="heart"></i>
+  <span class="version mobile">v.{{currentVersion}}</span>
+  <h1>
+    Eva icons
+    <span class="version desktop">v.{{currentVersion}}</span>
+  </h1>
+</div>
+<p class="description">
+  Eva Icons is a free pack of <span>480</span> delightful, beautifully crafted symbols for common actions and items.
+  <br/>Download on desktop to use them in your digital products for Android, iOS, and web.
+</p>
 
-<div class="search">
-  <i [innerHTML]="'search-outline' | eva : 35: 35: '#3366ff'"></i>
+<div class="search" [class.search-focus]="isInputFocus">
+  <i [innerHTML]="'search-outline' | eva: { width: 24, height: 24 }"></i>
   <input class="search-input"
+         (focus)="handleFocusInput()"
+         (blur)="handleBlurInput()"
+         [attr.placeholder]="placeholder"
          #searchInput
          autocomplete="off"
-         [attr.placeholder]="'Search...'"
          tabindex="-1"/>
 </div>
 
-<div class="icons">
-  <eva-list-view-switcher *ngIf="icons.length !== 0"
-                          [view]="view"
-                          (changeView)="changeView($event)">
-  </eva-list-view-switcher>
+<div class="actions">
+  <section class="left-actions">
+    <eva-type-switcher (changeIconsType)="changeIconsType($event)"
+                       [isMobileView]="isMobileMode"
+                       [iconsType]="iconsType">
+    </eva-type-switcher>
+  </section>
+  <section class="right-action">
+    <eva-animation-switcher (changeAnimation)="changeAnimation($event)"
+                            [isMobileView]="isMobileMode"
+                            [animation]="animation">
+    </eva-animation-switcher>
+  </section>
+</div>
 
-  <eva-icon-list [icons]="icons"
-                 [view]="view"
+<div class="icons" #iconsBlock>
+  <eva-icon-list *ngIf="!noSearchResults"
+                 [icons]="icons"
+                 [animationType]="animation"
+                 [isMobileView]="isMobileMode"
                  (clickIcon)="clickIcon($event)">
   </eva-icon-list>
+
+  <div *ngIf="noSearchResults"
+       class="info-message">
+    {{ message }}
+  </div>
+
+  <div *ngIf="isLoading"
+       class="spinner-container"
+       [nbSpinner]="isLoading"
+       nbSpinnerMessage=""
+       nbSpinnerStatus="primary"
+       nbSpinnerSize="xxlarge">
+  </div>
 </div>
+

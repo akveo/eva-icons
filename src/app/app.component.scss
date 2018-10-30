@@ -1,7 +1,16 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
 @import '@theme/styles/themes';
+@import '~@nebular/theme/styles/global/breakpoints';
 
 @include nb-install-component() {
+  $blur-background: #e9eaec;
   $content-width: nb-theme(content-width);
+  $popover-border-width: calc(#{nb-theme(popover-arrow-size)} - 2px);
 
   .content-center {
     max-width: $content-width;
@@ -14,8 +23,38 @@
 
   .contact-us {
     padding: 5rem 1rem;
+
     h2 {
       color: black;
+    }
+  }
+
+  /deep/ nb-popover {
+    font-family: nb-theme(font-main), sans-serif;
+
+    nb-overlay-container {
+      .primitive-overlay {
+        box-shadow: 0 6px 10px 0 rgba(51, 102, 255, 0.16);
+        padding: 0.4rem 1rem 0.5rem;
+        font-size: nb-theme(font-size-sm);
+      }
+    }
+
+    .arrow {
+      &::after {
+        border-left-width: $popover-border-width;
+        border-right-width: $popover-border-width;
+        border-bottom-width: $popover-border-width;
+      }
+    }
+  }
+
+  /deep/ nb-layout {
+    &.blur {
+      .layout {
+        filter: blur(5px);
+        background-color: $blur-background;
+      }
     }
   }
 
@@ -27,21 +66,34 @@
     }
   }
 
-  /deep/ nb-layout .layout-container {
+  /deep/ nb-layout .layout-container .columns {
     max-width: $content-width;
+    margin: 0 auto;
+  }
+
+  /deep/ nb-layout-header {
+    nav {
+      max-width: $content-width;
+      margin: 0 auto;
+    }
+  }
+
+  /deep/ .content nb-layout-footer {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #f7f8fa;
+
+    nav {
+      max-width: $content-width;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 
-  /deep/ nb-layout-footer {
-    margin-top: 6rem;
-  }
 
-  // modals
-  /deep/ .download-icon, /deep/ .download-icons {
-    background-color: nb-theme(color-white);
-    opacity: 0.9;
+  @include media-breakpoint-down(xl) {
+    nb-layout-header /deep/ nav {
+      height: 8.25rem;
+      display: block;
+    }
   }
-  // modals
 }

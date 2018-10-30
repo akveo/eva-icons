@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let item of navItems"
+      class="nav-item"
+      [class.active]="item.type === iconsType"
+      (click)="changeType(item.type)">
+    <i class="nav-menu-icon"
+       [innerHTML]="item.iconName | eva">
+    </i>
+    <span class="title">{{ item.title }}</span>
+  </li>
+</ul>
