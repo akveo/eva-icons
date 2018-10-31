@@ -7,6 +7,7 @@
 import { Component } from '@angular/core';
 import { UrlService } from '../../../@core/data/service/url.service';
 import { EvaAnalytics } from '../../services/analytics.service';
+import { EvaVersionService } from '../../services/version.service';
 
 @Component({
   selector: 'eva-header',
@@ -18,11 +19,14 @@ export class HeaderComponent {
   zipUrl: string;
 
   constructor(private urlService: UrlService,
-              private analytics: EvaAnalytics) {
+              private analytics: EvaAnalytics,
+              private versionService: EvaVersionService) {
     this.zipUrl = this.urlService.getZippedIconsUrl();
   }
 
   clickOnDownloadPack() {
-    this.analytics.trackEvent('download-pack', 'download-icons-design-pack');
+    const version = this.versionService.getEvoVersion();
+
+    this.analytics.trackEvent('download-pack', `download pack version: ${version}`);
   }
 }
