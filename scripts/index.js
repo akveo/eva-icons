@@ -69,7 +69,7 @@ const renameSvgIcons = (folder) => {
     .then((sourceFiles) => renameSvg(sourceFiles.files, srcPath, folder));
 };
 
-fileSystemHelper.remove(config.desPath, true)
+fileSystemHelper.remove(config.desPath)
   .then(() => {
     return fileSystemHelper.getSourceFiles(config.srcPath)
       .then((srcDirectories) => {
@@ -78,7 +78,11 @@ fileSystemHelper.remove(config.desPath, true)
             .then(() => prepareIcons(folder));
         }))
           .then(() => merge())
-          .then(() => zip(srcDirectories.files));
+          .then(() => {
+            const archivePath = path.join(config.srcPath, '../archive');
+
+            zip(srcDirectories.files, archivePath);
+          });
       })
   })
   .then(() => buildWebFont())

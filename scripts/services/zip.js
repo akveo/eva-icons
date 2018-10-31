@@ -10,14 +10,11 @@ const archiver = require('archiver');
 
 const config = require('../config');
 
-const addToDirectory = (folder, zip) => {
-  const prefix = folder.toLowerCase();
-  const srcPath = path.join(config.desPath, prefix);
-
-  zip.directory(srcPath, prefix);
+const addToDirectory = (srcPath, subDir, zip) => {
+  zip.directory(srcPath, subDir);
 };
 
-const zip = (folders) => {
+const zip = (iconsFolders, archivePath) => {
   const zip = archiver('zip', { zlib: { level: 9 } });
   const desFolderPath = path.join(config.desPath, `eva-icons.zip`);
 
@@ -33,9 +30,14 @@ const zip = (folders) => {
     throw err;
   });
 
-  folders.forEach((folder) => {
-    addToDirectory(folder, zip);
+  iconsFolders.forEach((folder) => {
+    const prefix  = folder.toLowerCase();
+    const srcPath = path.join(config.desPath, prefix);
+
+    addToDirectory(srcPath, prefix, zip);
   });
+
+  addToDirectory(archivePath, false, zip);
 
   zip.pipe(fs.createWriteStream(desFolderPath));
   zip.finalize();
