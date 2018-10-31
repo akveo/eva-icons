@@ -58,7 +58,7 @@ $eva-icons-font-family: 'Eva-Icons' !default;
 
 const genScssFont = (scssRoot) => {
   const buildScss = './_eva-icons-font.scss';
-  const buildCss = path.join(config.desPath, 'css/Eva-Icons.css');
+  const buildCss = path.join(config.desPath, 'style/eva-icons.css');
   const file = fs.readFileSync(buildCss).toString();
   const content = file
     .replace(/"/g, '\'')
@@ -81,7 +81,7 @@ const genScssFont = (scssRoot) => {
 };
 
 const processScss = () => {
-  const scssRoot = path.join(config.desPath, '/css/scss');
+  const scssRoot = path.join(config.desPath, '/style/scss');
 
   fileSystemHelper.mkDirByPathSync(scssRoot);
 

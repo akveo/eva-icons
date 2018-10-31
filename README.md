@@ -73,7 +73,7 @@ Eva Icons are also available as a Web Font.
 - Include the font css into your page:
 
 ```html
-<link href="path/to/css/Eva-Icons.css">
+<link href="path/to/style/eva-icons.css">
 ```
 - Add `eva` and `eva-icon` classes to an element:
 
