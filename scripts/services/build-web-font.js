@@ -22,8 +22,8 @@ const webFontOptions = {
 };
 
 const buildFont = () => {
-  const dest = path.join(config.desPath, '/css/fonts');
-  const destTemplate = path.join(config.desPath, '/css');
+  const dest = path.join(config.desPath, '/style/fonts');
+  const destTemplate = path.join(config.desPath, '/style');
 
   fileSystemHelper.mkDirByPathSync(dest);
 
@@ -47,7 +47,7 @@ const buildFont = () => {
           if (type !== 'template') {
             file = path.resolve(dest, `${fontName}.${type}`);
           } else {
-            file = path.resolve(destTemplate, `${fontName}.${template}`);
+            file = path.resolve(destTemplate, `${fontName.toLowerCase()}.${template}`);
           }
 
           return fs.outputFile(file, content);
