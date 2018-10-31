@@ -27,7 +27,7 @@ npm i eva-icons
 <script src="path/to/dist/eva-icons.js"></script>
 ```
 
-- Or require the package based (may vary depending on your build system):
+- Or require the package (may vary depending on your build system):
 
 ```js
 const eva = require('eva-icons');
@@ -91,12 +91,17 @@ Replaces all elements that have a `data-eva` attribute with SVG markup correspon
 ## License
 [MIT](LICENSE.txt) license.
 
+## More from Akveo
+
+- [Nebular](https://github.com/akveo/nebular) - Angular Component, Auth and Security
+- [ngx-admin](https://github.com/akveo/ngx-admin) - the best Angular admin template
+
 ## How can I support the developers?
 - Star our GitHub repo :star:
 - Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
 - Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
 - Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
 
-## From Akveo
+## From Developers
 Made with :heart: by [Akveo team](http://akveo.com?utm_source=github&utm_medium=nebular_readme). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
 We're always happy to receive your feedback!
