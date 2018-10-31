@@ -18,6 +18,7 @@
   $version-bg: #edfff3;
   $description-color: #5670a1;
   $search-icon-fill-color: #a6aebd;
+  $actions-color: #a7b4cc;
 
   margin-top: 4.5rem;
   margin-bottom: 3rem;
@@ -116,6 +117,15 @@
     justify-content: space-between;
     margin-top: 2.875rem;
   }
+
+  .right-action {
+    display: flex;
+    color: $actions-color;
+  }
+
+  .animation-title {
+    margin-right: 1.625rem;
+  }
   // actions
 
   // icons container
@@ -158,10 +168,6 @@
   @include media-breakpoint-down(lg) {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  @include media-breakpoint-down(md) {
-
   }
 
   @include media-breakpoint-down(sm) {
@@ -208,6 +214,10 @@
       .right-action {
         margin-top: 2.5rem;
       }
+    }
+
+    .animation-title {
+      display: none;
     }
 
     .info-message {
