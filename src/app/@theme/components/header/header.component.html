@@ -45,7 +45,7 @@
     <span>Download</span>
     <div class="download-items-container">
       <ul>
-        <li>
+        <li (click)="clickOnDownloadPack()">
           <a href="{{ zipUrl }}"
              download>
             <i [innerHTML]="'cube-outline' | eva: { width: 24, height: 24, fill: '#ffffff' }"></i>

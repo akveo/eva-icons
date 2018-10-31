@@ -25,6 +25,7 @@ import { debounceTime, delay, mergeMap, takeWhile, tap } from 'rxjs/operators';
 import { DownloadIconComponent } from '../modals/download-icon/download-icon.component';
 import { DialogStateService } from '../../services/dialog-state.service';
 import { EvaVersionService } from '../../services/version.service';
+import { EvaAnalytics } from '../../services/analytics.service';
 
 @Component({
   selector: 'eva-page-container',
@@ -54,7 +55,8 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
               private breakpointService: NbMediaBreakpointsService,
               private themeService: NbThemeService,
               private dialogStateService: DialogStateService,
-              private versionService: EvaVersionService) {
+              private versionService: EvaVersionService,
+              private analytics: EvaAnalytics) {
     this.currentVersion = this.versionService.getEvoVersion();
     this.breakpoints = this.breakpointService.getBreakpointsMap();
 
@@ -133,6 +135,8 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
   }
 
   clickIcon(icon) {
+    this.analytics.trackEvent('open-icon-dialog', icon);
+
     if (this.isMobileMode) {
       return;
     }

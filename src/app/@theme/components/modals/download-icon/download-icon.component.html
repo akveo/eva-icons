@@ -11,7 +11,7 @@
     </div>
     <div class="download-controls">
       <div *ngFor="let item of downloadControls"
-           (click)="selectFormatAndDownloadIcon(item.format)"
+           (click)="clickOnDownloadIcon(item)"
            [class.active]="item.format === selectedFormat"
       >
         <a href="{{ item.href }}" download>
