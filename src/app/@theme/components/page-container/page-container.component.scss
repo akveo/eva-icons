@@ -202,7 +202,10 @@
     .description {
       margin-bottom: 4rem;
       font-size: nb-theme(font-size);
-      text-align: center;
+
+      br {
+        display: none;
+      }
     }
 
     .actions {

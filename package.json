@@ -11,7 +11,7 @@
     "ngh": "ngh",
     "start": "ng serve --port 3333 --host 0.0.0.0",
     "build": "ng build",
-    "build:prod": "npm run icons:prepare && npm run build -- --prod --aot  --base-href '/eva-icons/'",
+    "build:prod": "npm run icons:prepare && npm run build -- --prod --aot  --base-href /eva-icons/",
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint eva-icons --fix",
