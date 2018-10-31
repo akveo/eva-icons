@@ -13,6 +13,12 @@ const animationKeys = {
   'data-eva-hover': 'hover',
   'data-eva-infinite': 'infinite',
 };
+const dataAttributesKeys = {
+  'data-eva': 'name',
+  'data-eva-width': 'width',
+  'data-eva-height': 'height',
+  'data-eva-fill': 'fill',
+};
 
 function replace(attrs = {}) {
   if (typeof document === 'undefined') {
@@ -27,10 +33,7 @@ function replace(attrs = {}) {
 }
 
 function replaceElement(element, attrs = {}) {
-  const elementAttrs = getAttrs(element);
-  const name = elementAttrs['data-eva'];
-
-  delete elementAttrs['data-eva'];
+  const { name, ...elementAttrs } = getAttrs(element);
 
   const svgString = icons[name].toSvg({
     ...attrs,
@@ -54,11 +57,26 @@ function getAttrs(element) {
         [animationKeys[attr.name]]: attr.value,
       };
     } else {
-      attrs[attr.name] = attr.value;
+      attrs = {
+        ...attrs,
+        ...getAttr(attr),
+      };
     }
 
     return attrs;
   }, {});
+}
+
+function getAttr(attr) {
+  if (!!dataAttributesKeys[attr.name]) {
+    return {
+      [dataAttributesKeys[attr.name]]: attr.value,
+    };
+  } else {
+    return {
+      [attr.name]: attr.value,
+    };
+  }
 }
 
 export default replace;
