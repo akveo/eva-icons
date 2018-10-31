@@ -32,7 +32,6 @@
     background-color: $version-bg;
     position: relative;
     bottom: 0.35rem;
-    font-family: 'Raleway Medium', sans-serif;
     font-size: nb-theme(font-size);
     font-weight: nb-theme(font-weight-bold);
     color: $version-color;
@@ -42,7 +41,7 @@
   }
 
   h1 {
-    font-family: 'Raleway Bold', sans-serif;
+    font-family: 'Raleway Bold', Arial, Helvetica, Geneva, sans-serif;
     color: $primary;
     font-size: 5rem;
     padding-left: 6.625rem;
@@ -52,7 +51,6 @@
 
   .description {
     color: $description-color;
-    font-family: 'Raleway Medium', sans-serif;
     font-size: nb-theme(font-size-lg);
     line-height: 1.625;
     margin-bottom: 2rem;
@@ -89,6 +87,7 @@
     height: 3.75rem;
     background: url('../../../../assets/img/heart.svg') no-repeat;
     background-position: 50% 50%;
+    background-size: contain;
   }
 
   .search-input {
@@ -152,7 +151,6 @@
     width: 70%;
     margin: 2.5rem auto;
     text-align: center;
-    font-family: 'Raleway Medium', sans-serif;
     font-size: nb-theme(font-size-lg);
     background-color: nb-theme(info-bg);
     color: nb-theme(info-fg);

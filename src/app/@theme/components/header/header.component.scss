@@ -30,7 +30,6 @@
       display: flex;
       margin-top: 1.5rem;
       color: $social-color;
-      font-family: 'Open Sans', sans-serif;
     }
 
     &.right {
@@ -97,8 +96,7 @@
     margin-top: 1.5rem;
     color: $primary;
     background-color: transparent;
-    font-family: 'Open Sans Bold', sans-serif;
-    font-weight: nb-theme(font-weight-ultra-bold);
+    font-weight: nb-theme(font-weight-bold);
     padding: 0.875rem;
     border: 1px solid nb-theme(color-gray-bg);
     border-radius: 0.25rem;
@@ -155,7 +153,6 @@
             text-decoration: none;
             text-transform: none;
             padding: 1rem;
-            font-family: 'Open Sans SemiBold', sans-serif;
             color: nb-theme(color-white);
 
             &:hover {

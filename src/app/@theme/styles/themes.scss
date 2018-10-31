@@ -11,9 +11,6 @@ $nb-enabled-themes: (eva);
 
 /* stylelint-disable */
 $nb-themes: nb-register-theme((
-  font-main: 'Open Sans',
-  font-secondary: 'Raleway Bold',
-
   content-width: 1120px,
 
   color-primary: #3366ff,
