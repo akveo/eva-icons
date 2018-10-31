@@ -7,6 +7,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { UrlService } from '../../../../@core/data/service/url.service';
 import { NbDialogRef } from '@nebular/theme';
+import { EvaAnalytics } from '../../../services/analytics.service';
 
 @Component({
   selector: 'eva-download-icon',
@@ -24,7 +25,8 @@ export class DownloadIconComponent implements AfterViewInit {
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private urlService: UrlService,
-              protected dialogRef: NbDialogRef<DownloadIconComponent>) {}
+              protected dialogRef: NbDialogRef<DownloadIconComponent>,
+              private analytics: EvaAnalytics) {}
 
   ngAfterViewInit() {
     this.downloadControls =
@@ -37,7 +39,7 @@ export class DownloadIconComponent implements AfterViewInit {
     this.dialogRef.close();
   }
 
-  selectFormatAndDownloadIcon(iconFormat: string) {
-    this.selectedFormat = iconFormat;
+  clickOnDownloadIcon(icon: { format: string; title: string }) {
+    this.analytics.trackEvent('download-icon', `${this.selectedIcon}.${icon.format}`);
   }
 }

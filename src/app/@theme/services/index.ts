@@ -6,9 +6,11 @@
 
 import { EvaVersionService } from './version.service';
 import { DialogStateService } from './dialog-state.service';
+import { EvaAnalytics } from './analytics.service';
 
 
 export const evaServices = [
   EvaVersionService,
   DialogStateService,
+  EvaAnalytics,
 ];
