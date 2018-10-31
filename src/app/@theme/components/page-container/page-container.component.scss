@@ -18,6 +18,7 @@
   $version-bg: #edfff3;
   $description-color: #5670a1;
   $search-icon-fill-color: #a6aebd;
+  $actions-color: #a7b4cc;
 
   margin-top: 4.5rem;
   margin-bottom: 3rem;
@@ -31,7 +32,6 @@
     background-color: $version-bg;
     position: relative;
     bottom: 0.35rem;
-    font-family: 'Raleway Medium', sans-serif;
     font-size: nb-theme(font-size);
     font-weight: nb-theme(font-weight-bold);
     color: $version-color;
@@ -41,7 +41,7 @@
   }
 
   h1 {
-    font-family: 'Raleway Bold', sans-serif;
+    font-family: 'Raleway Bold', Arial, Helvetica, Geneva, sans-serif;
     color: $primary;
     font-size: 5rem;
     padding-left: 6.625rem;
@@ -51,7 +51,6 @@
 
   .description {
     color: $description-color;
-    font-family: 'Raleway Medium', sans-serif;
     font-size: nb-theme(font-size-lg);
     line-height: 1.625;
     margin-bottom: 2rem;
@@ -88,6 +87,7 @@
     height: 3.75rem;
     background: url('../../../../assets/img/heart.svg') no-repeat;
     background-position: 50% 50%;
+    background-size: contain;
   }
 
   .search-input {
@@ -116,6 +116,15 @@
     justify-content: space-between;
     margin-top: 2.875rem;
   }
+
+  .right-action {
+    display: flex;
+    color: $actions-color;
+  }
+
+  .animation-title {
+    margin-right: 1.625rem;
+  }
   // actions
 
   // icons container
@@ -142,7 +151,6 @@
     width: 70%;
     margin: 2.5rem auto;
     text-align: center;
-    font-family: 'Raleway Medium', sans-serif;
     font-size: nb-theme(font-size-lg);
     background-color: nb-theme(info-bg);
     color: nb-theme(info-fg);
@@ -158,10 +166,6 @@
   @include media-breakpoint-down(lg) {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  @include media-breakpoint-down(md) {
-
   }
 
   @include media-breakpoint-down(sm) {
@@ -208,6 +212,10 @@
       .right-action {
         margin-top: 2.5rem;
       }
+    }
+
+    .animation-title {
+      display: none;
     }
 
     .info-message {
