@@ -93,8 +93,8 @@ Replaces all elements that have a `data-eva` attribute with SVG markup correspon
 
 ## More from Akveo
 
-- [Nebular] - Angular Component, Auth and Security
-- [ngx-admin] - the best Angular admin template
+- [Nebular](https://github.com/akveo/nebular) - Angular Component, Auth and Security
+- [ngx-admin](https://github.com/akveo/ngx-admin) - the best Angular admin template
 
 ## How can I support the developers?
 - Star our GitHub repo :star:
@@ -102,6 +102,6 @@ Replaces all elements that have a `data-eva` attribute with SVG markup correspon
 - Follow us on [Twitter](https://twitter.com/akveo_inc) :feet:
 - Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
 
-## From Akveo
+## From Developers
 Made with :heart: by [Akveo team](http://akveo.com?utm_source=github&utm_medium=nebular_readme). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
 We're always happy to receive your feedback!
