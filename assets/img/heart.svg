@@ -1,43 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="86px" height="74px" viewBox="0 0 86 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: sketchtool 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
-    <title>595CB108-9780-47D9-AAF4-432058714209</title>
-    <desc>Created with sketchtool.</desc>
+<svg width="22px" height="17px" viewBox="0 0 22 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
     <defs>
-        <filter x="-57.0%" y="-57.0%" width="214.1%" height="214.1%" filterUnits="objectBoundingBox" id="filter-1">
-            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.250980392   0 0 0 0 0.250980392  0 0 0 0.28 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feMerge>
-                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
-                <feMergeNode in="SourceGraphic"></feMergeNode>
-            </feMerge>
-        </filter>
-        <path d="M30,52.5 C29.335,52.5 28.7,52.2375 28.23,51.765 L8.8125,32.315 C3.7225,27.215 3.7225,18.9175 8.8125,13.8175 C11.27,11.3575 14.5525,10 18.05,10 C21.5475,10 24.83,11.3575 27.2875,13.8175 L30,16.535 L32.71,13.82 C35.17,11.3575 38.4525,10 41.95,10 C45.4475,10 48.73,11.3575 51.1875,13.8175 C56.2775,18.9175 56.2775,27.215 51.19,32.315 L31.77,51.7675 C31.3,52.2375 30.665,52.5 30,52.5" id="path-2"></path>
-        <path d="M18.04925,15 C15.88925,15 13.86425,15.835 12.34925,17.3525 C9.20425,20.5025 9.20425,25.63 12.35175,28.785 L29.99925,46.4625 L47.64925,28.785 C50.79675,25.63 50.79675,20.5025 47.64925,17.3525 C44.61925,14.315 39.27925,14.32 36.24925,17.3525 L31.76925,21.84 C30.82925,22.7825 29.16925,22.7825 28.22925,21.84 L23.74925,17.35 C22.23425,15.835 20.21175,15 18.04925,15 M29.99925,52.5 C29.33675,52.5 28.69925,52.2375 28.23175,51.765 L8.81175,32.315 C3.72175,27.215 3.72175,18.9175 8.81175,13.8175 C11.27175,11.3575 14.55175,10 18.04925,10 C21.54675,10 24.82925,11.3575 27.28675,13.8175 L29.99925,16.535 L32.71175,13.82 C35.17175,11.3575 38.45175,10 41.95175,10 C45.44675,10 48.72925,11.3575 51.18675,13.8175 C56.27925,18.9175 56.27925,27.215 51.18925,32.315 L31.76925,51.7675 C31.29925,52.2375 30.66425,52.5 29.99925,52.5" id="path-4"></path>
+        <path d="M11,17 C10.734,17 10.48,16.895 10.292,16.706 L2.525,8.926 C0.489,6.886 0.489,3.567 2.525,1.527 C3.508,0.543 4.821,0 6.22,0 C7.619,0 8.932,0.543 9.915,1.527 L11,2.614 L12.084,1.528 C13.068,0.543 14.381,0 15.78,0 C17.179,0 18.492,0.543 19.475,1.527 C21.511,3.567 21.511,6.886 19.476,8.926 L11.708,16.707 C11.52,16.895 11.266,17 11,17" id="path-1"></path>
+        <path d="M6.2197,2 C5.3557,2 4.5457,2.334 3.9397,2.941 C2.6817,4.201 2.6817,6.252 3.9407,7.514 L10.9997,14.585 L18.0597,7.514 C19.3187,6.252 19.3187,4.201 18.0597,2.941 C16.8477,1.726 14.7117,1.728 13.4997,2.941 L11.7077,4.736 C11.3317,5.113 10.6677,5.113 10.2917,4.736 L8.4997,2.94 C7.8937,2.334 7.0847,2 6.2197,2 M10.9997,17 C10.7347,17 10.4797,16.895 10.2927,16.706 L2.5247,8.926 C0.4887,6.886 0.4887,3.567 2.5247,1.527 C3.5087,0.543 4.8207,0 6.2197,0 C7.6187,0 8.9317,0.543 9.9147,1.527 L10.9997,2.614 L12.0847,1.528 C13.0687,0.543 14.3807,0 15.7807,0 C17.1787,0 18.4917,0.543 19.4747,1.527 C21.5117,3.567 21.5117,6.886 19.4757,8.926 L11.7077,16.707 C11.5197,16.895 11.2657,17 10.9997,17" id="path-3"></path>
     </defs>
-    <g id="New-variant" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="main-page" transform="translate(-153.000000, -216.017966)">
-            <g id="Group-14" transform="translate(160.000000, 200.000000)">
-                <g id="Group-6" filter="url(#filter-1)" transform="translate(4.000000, 17.000000)">
-                    <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="64" height="64"></rect>
-                    <g id="Icon/Fill/heart" transform="translate(4.000000, 2.000000)">
-                        <mask id="mask-3" fill="white">
-                            <use xlink:href="#path-2"></use>
+    <g id="Eva-Icons-Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-1145.000000, -1127.000000)">
+            <g id="Group-2" transform="translate(1144.000000, 1123.000000)">
+                <rect id="Rectangle" fill-opacity="0" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="24" height="24" rx="2"></rect>
+                <g id="Group" transform="translate(0.000000, 4.000000)">
+                    <g id="Icon/Fill/heart" transform="translate(2.000000, 0.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
                         </mask>
-                        <use id="Mask" fill="#231F20" fill-rule="evenodd" xlink:href="#path-2"></use>
-                        <g id="Styles/Color/White/AlwaysWhite" mask="url(#mask-3)" fill="#FFA8B4" fill-rule="evenodd">
-                            <rect id="Base" x="0" y="0" width="60" height="60"></rect>
-                        </g>
+                        <use id="Mask" fill="#FFA8B4" xlink:href="#path-1"></use>
                     </g>
-                    <g id="Icon/Outline/heart" transform="translate(0.000000, 2.000000)">
-                        <mask id="mask-5" fill="white">
-                            <use xlink:href="#path-4"></use>
+                    <g id="Icon/Outline/heart">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
                         </mask>
-                        <use id="Mask" fill="#231F20" fill-rule="evenodd" xlink:href="#path-4"></use>
-                        <g id="Styles/Color/White/AlwaysWhite" mask="url(#mask-5)" fill="#FF3D71" fill-rule="evenodd">
-                            <rect id="Base" x="0" y="0" width="60" height="60"></rect>
-                        </g>
+                        <use id="Mask" fill="#FF3D71" xlink:href="#path-3"></use>
                     </g>
                 </g>
             </g>
