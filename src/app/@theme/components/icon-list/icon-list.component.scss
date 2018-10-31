@@ -41,7 +41,7 @@
     }
 
     &:hover {
-      border: none;
+      border: 1px solid transparent;
       box-shadow: 0 8px 24px 0 rgba(237, 240, 245, 0.5);
 
       i {
