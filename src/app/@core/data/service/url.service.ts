@@ -17,11 +17,11 @@ export class UrlService {
   readonly DOWNLOAD_ZIP_URL = `${this.prefix_folder}/eva-icons.zip`;
   readonly DOWNLOAD_URLS = {
     svg: `${this.prefix_folder}/type/svg/name.svg`,
-    png: `${this.prefix_folder}/type/png/64/name.png`,
+    png: `${this.prefix_folder}/type/png/128/name.png`,
   };
   readonly DOWNLOAD_PROD_URLS = {
     svg: 'type/svg/name.svg',
-    png: 'type/png/64/name.png',
+    png: 'type/png/128/name.png',
   };
 
   protected downloadItemsData = [
