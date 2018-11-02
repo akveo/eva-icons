@@ -10,7 +10,7 @@ const config = {
   'convertOrResizeFormats': [
     {
       'format': 'png',
-      'size': ['64']
+      'size': ['128']
     }
   ],
   'copy': [

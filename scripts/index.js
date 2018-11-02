@@ -8,12 +8,10 @@ const path = require('path');
 
 const config = require('./config');
 const fileSystemHelper = require('./helpers/fs-helper');
-const processSvgs = require('./services/process-svgs');
 const buildIconsJSON = require('./services/build-icons-json');
 const buildSprite = require('./services/build-sprite');
-const renameSvg = require('./services/rename-svg');
+const renameIcon = require('./services/rename-icon');
 const mergeIconsJSON = require('./services/merge-icons-json');
-const transformFiles = require('./services/transform-icons');
 const zip = require('./services/zip');
 const buildWebFont = require('./services/build-web-font');
 
@@ -31,27 +29,20 @@ const copyReadme = () => {
 
   return fileSystemHelper.copy(srcPath, desPath);
 };
-const copy = (srcPath, folder) => {
-  return Promise.all(config.copy.map((copyFormat) => {
-    const pathFromCopy = path.join(srcPath, copyFormat.format);
-    const pathToCopy = path.join(config.desPath, folder.toLowerCase(), copyFormat.format);
+const copy = (folderPath) => {
+  const pathFromCopy = path.join(config.srcPath, folderPath);
+  const pathToCopy = path.join(config.desPath, folderPath.toLowerCase());
 
-    return fileSystemHelper.copy(pathFromCopy, pathToCopy);
-  }));
+  return fileSystemHelper.copy(pathFromCopy, pathToCopy);
 };
-const prepareIcons = (folder) => {
-  const folderPath = path.join(config.srcPath, folder);
+const prepareIcons = (iconType) => {
+  const folderPath = path.join(config.srcPath, iconType);
   const srcPath = path.join(folderPath, config.defaultExtension);
 
   return fileSystemHelper.getSourceFiles(srcPath)
     .then((sourceFiles) => {
-      return processSvgs(sourceFiles.files, srcPath, folder)
-        .then(() => Promise.all([
-          copy(folderPath, folder),
-          transformFiles(sourceFiles, srcPath, folder),
-          buildIconsJSON(sourceFiles.files, srcPath, folder),
-        ]))
-        .then(() => buildSprite(folder));
+      return buildIconsJSON(sourceFiles.files, srcPath, iconType)
+        .then(() => buildSprite(iconType));
     });
 };
 const merge = () => {
@@ -61,21 +52,29 @@ const merge = () => {
         .then(() => buildSprite('eva'));
     });
 };
-const renameSvgIcons = (folder) => {
-  const folderPath = path.resolve(config.srcPath, folder);
-  const srcPath = path.resolve(folderPath, config.defaultExtension);
+const renameIcons = (type, folderPath, extension) => {
+  const srcPath = path.resolve(config.srcPath, folderPath);
 
   return fileSystemHelper.getSourceFiles(srcPath)
-    .then((sourceFiles) => renameSvg(sourceFiles.files, srcPath, folder));
+    .then((sourceFiles) => renameIcon(sourceFiles.files, srcPath, type, extension));
 };
 
 fileSystemHelper.remove(config.desPath)
   .then(() => {
     return fileSystemHelper.getSourceFiles(config.srcPath)
       .then((srcDirectories) => {
-        return Promise.all(srcDirectories.files.map((folder) => {
-          return renameSvgIcons(folder)
-            .then(() => prepareIcons(folder));
+        return Promise.all(srcDirectories.files.map((iconType) => {
+          return Promise.all([
+            renameIcons(iconType, `${iconType}/${config.defaultExtension}`, config.defaultExtension),
+            renameIcons(iconType, `${iconType}/png/128`, 'png')
+          ])
+            .then(() => {
+              return Promise.all([
+                copy(`${iconType}/${config.defaultExtension}`),
+                copy(`${iconType}/png/128`),
+              ]);
+            })
+            .then(() => prepareIcons(iconType));
         }))
           .then(() => merge())
           .then(() => {

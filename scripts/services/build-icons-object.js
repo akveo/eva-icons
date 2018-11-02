@@ -8,6 +8,8 @@ const path = require('path');
 const cheerio = require('cheerio');
 const htmlMinifier = require('html-minifier');
 
+const processSvg = require('./process-svg');
+
 const getSvgContents = (svg) => {
   const $ = cheerio.load(svg, { xmlMode: true });
 
@@ -20,19 +22,23 @@ const getSvgContents = (svg) => {
 };
 
 const buildIconsObject = (svgFiles, getSvg) => {
-  return svgFiles
-    .map(svgFile => {
-      const name = path.basename(svgFile, '.svg');
-      const svg = getSvg(svgFile);
-      const contents = getSvgContents(svg);
+  return Promise.all(svgFiles.map((svgFile) => {
+    const name = path.basename(svgFile, '.svg');
 
-      return { name, contents };
-    })
-    .reduce((icons, icon) => {
-      icons[icon.name] = icon.contents;
+    return processSvg(getSvg(svgFile))
+      .then((svg) => {
+        const contents = getSvgContents(svg);
 
-      return icons;
-    }, {});
+        return { name, contents };
+      });
+  }))
+    .then((processed) => {
+      return processed.reduce((icons, icon) => {
+        icons[icon.name] = icon.contents;
+
+        return icons;
+      }, {});
+    });
 };
 
 module.exports = buildIconsObject;
