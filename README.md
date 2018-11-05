@@ -1,7 +1,7 @@
 <h1><img src="https://i.imgur.com/cXYo5bi.png"> Eva Icons</h1>
 <img src="https://i.imgur.com/oDmqDkE.jpg">
 
-**Eva Icons** is a pack of over 480 beautifully-crafted Open Source icons for common actions and items. Use Eva Icons for Web, iOS and Android digital products. Download pack to your desktop in formats like `PNG`, `SVG`, `font`, `Sketch` and more. Icons are provided in two visual types (`Fill` and `Outline`) and support 4 animation types (`zoom`, `pulse`, `shake` and `flip`).
+**Eva Icons** is a pack of over 480 beautifully-crafted Open Source icons for common actions and items. Use Eva Icons for Web, iOS and Android digital products. Download the pack to your desktop in formats like `PNG`, `SVG`, `font`, `Sketch` and more. Icons are provided in 2 visual types (`Fill` and `Outline`) and support 4 animation types (`zoom`, `pulse`, `shake` and `flip`).
 
 ## Download
 - [Complete Eva Icons Package](https://akveo.github.io/eva-icons/eva-icons.zip)
