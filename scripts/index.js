@@ -8,13 +8,39 @@ const path = require('path');
 
 const config = require('./config');
 const fileSystemHelper = require('./helpers/fs-helper');
+const processSvgs = require('./services/process-svgs');
+const processPngs = require('./services/process-pngs');
 const buildIconsJSON = require('./services/build-icons-json');
 const buildSprite = require('./services/build-sprite');
-const renameIcon = require('./services/rename-icon');
+const renameIcons = require('./services/rename-icon');
 const mergeIconsJSON = require('./services/merge-icons-json');
 const zip = require('./services/zip');
 const buildWebFont = require('./services/build-web-font');
 
+const renameSrcIcons = (srcPath, srcIcons, postfix, extension) => {
+  if (postfix.toLowerCase() === 'outline') {
+    return renameIcons(srcPath, srcIcons, postfix, extension);
+  }
+
+  return Promise.resolve(srcIcons);
+};
+const prepareSvgIcons = (icons, srcPath, desPath) => {
+  const desSvgPath = path.join(desPath, 'svg');
+
+  return processSvgs(icons, srcPath, desSvgPath);
+};
+const preparePngIcons = (icons, srcPath, desPath) => {
+  const desPngPath = path.join(desPath, 'png');
+
+  return processPngs(icons, srcPath, desPngPath);
+};
+const merge = () => {
+  return fileSystemHelper.getFilesByPath(config.desPath)
+    .then(sourceFiles => {
+      return mergeIconsJSON(sourceFiles.files)
+        .then(() => buildSprite('eva'));
+    });
+};
 const copyPackageJson = () => {
   const fileName = 'package.json';
   const srcPath = path.join(__dirname, fileName);
@@ -29,53 +55,29 @@ const copyReadme = () => {
 
   return fileSystemHelper.copy(srcPath, desPath);
 };
-const copy = (folderPath) => {
-  const pathFromCopy = path.join(config.srcPath, folderPath);
-  const pathToCopy = path.join(config.desPath, folderPath.toLowerCase());
-
-  return fileSystemHelper.copy(pathFromCopy, pathToCopy);
-};
-const prepareIcons = (iconType) => {
-  const folderPath = path.join(config.srcPath, iconType);
-  const srcPath = path.join(folderPath, config.defaultExtension);
-
-  return fileSystemHelper.getSourceFiles(srcPath)
-    .then((sourceFiles) => {
-      return buildIconsJSON(sourceFiles.files, srcPath, iconType)
-        .then(() => buildSprite(iconType));
-    });
-};
-const merge = () => {
-  return fileSystemHelper.getSourceFiles(config.desPath)
-    .then(sourceFiles => {
-      return mergeIconsJSON(sourceFiles.files)
-        .then(() => buildSprite('eva'));
-    });
-};
-const renameIcons = (type, folderPath, extension) => {
-  const srcPath = path.resolve(config.srcPath, folderPath);
-
-  return fileSystemHelper.getSourceFiles(srcPath)
-    .then((sourceFiles) => renameIcon(sourceFiles.files, srcPath, type, extension));
-};
 
 fileSystemHelper.remove(config.desPath)
   .then(() => {
-    return fileSystemHelper.getSourceFiles(config.srcPath)
+    return fileSystemHelper.getFilesByPath(config.srcPath)
       .then((srcDirectories) => {
-        return Promise.all(srcDirectories.files.map((iconType) => {
-          return Promise.all([
-            renameIcons(iconType, `${iconType}/${config.defaultExtension}`, config.defaultExtension),
-            renameIcons(iconType, `${iconType}/png/128`, 'png')
-          ])
-            .then(() => {
-              return Promise.all([
-                copy(`${iconType}/${config.defaultExtension}`),
-                copy(`${iconType}/png/128`),
-              ]);
-            })
-            .then(() => prepareIcons(iconType));
-        }))
+        const srcFolders = srcDirectories.files;
+
+        return Promise.all(srcFolders.map((folder) => {
+          const srcIconsPath = path.join(config.srcPath, folder, config.defaultExtension);
+          const desIconsPath = path.join(config.desPath, folder);
+
+          return fileSystemHelper.getFilesByPath(srcIconsPath)
+            .then((sourceIcons) => {
+              return renameSrcIcons(srcIconsPath, sourceIcons.files, folder, 'svg')
+                .then((renamedFiles) => Promise.all([
+                  prepareSvgIcons(renamedFiles, srcIconsPath, desIconsPath),
+                  preparePngIcons(renamedFiles, srcIconsPath, desIconsPath),
+                ])
+                  .then(() => buildIconsJSON(renamedFiles, path.join(desIconsPath, 'svg'), folder))
+                  .then(() => buildSprite(folder))
+                );
+            });
+          }))
           .then(() => merge())
           .then(() => {
             const archivePath = path.join(config.srcPath, '../archive');
