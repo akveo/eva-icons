@@ -67,6 +67,16 @@ import * as eva from 'eva-icons';
 ```
 *Thanks to Feather Icons for the build process inspiration.*
 
+- Additional attributes: 
+  * `data-eva-fill`: set icon color
+  * `data-eva-height`: set icon height
+  * `data-eva-width`: set icon width
+  * `data-eva-animation`: [set icon animation](#animation)
+  
+```html
+<i data-eva="github" data-eva-fill="#ff0000" data-eva-height="48" data-eva-width="48"></i>
+```
+
 ### Fonts
 
 Eva Icons are also available as a Web Font.
@@ -86,9 +96,58 @@ We recommend using SVG icons due to better rendering and performance capabilitie
 
 ## Documentation
 
-### `eva.replace({ ... })`
+### `eva.replace(options)`
 
-Replaces all elements that have a `data-eva` attribute with SVG markup corresponding to the element's `data-eva` attribute value.
+Replaces all elements that have a `data-eva` attribute with SVG markup.
+
+`options` optional object.
+
+#### Available 'option' properties:
+| Name |  Type   |  Default value | Description |
+|------| ------  | -------------  |-------------|
+| fill | string | none           | Icon color  |
+| width | string or number | 24px    | Icon width  |
+| height | string or number | 24px    | Icon height  |
+| class | string | none | Custom css class  |
+| animation | object | none    | [Icon animation](#animation)  |
+
+### Animation 
+- Add the `data-eva-animation` attribute with the animation type `(zoom, pulse, shake and flip)` to an element:
+
+```html
+<i data-eva="github" data-eva-animation="zoom"></i>
+```
+
+- By default animation works by hover and has infinity `false`, if you want change this behavior add `data-eva-hover="true | false"` and `data-eva-infinite="true | false"`
+
+```html
+<i data-eva="github" data-eva-animation="zoom" data-eva-hover="false" data-eva-infinite="true"></i>
+```
+
+> **Note:** In the above example github icon will be always animated.
+
+- Pass animation as property in a `eva.replace` method.
+
+```js
+eva.replace({
+  aniamtion: {
+    type: string, // zoom, pulse, shake, flip
+    hover: booleam, // default true
+    infinite: boolean, // default false
+  }
+});
+```
+> **Note:** The animation will be applied to all replaced elements.
+
+- Add class `eva-parent-hover` to parent container if you want that the animation works by hover on the parent element.
+
+```html
+<div class="eva-parent-hover">
+  <i data-eva="github" data-eva-animation="zoom"></i>
+  Zoom aniamtion
+</div>
+```
+
 ## License
 [MIT](LICENSE.txt) license.
 

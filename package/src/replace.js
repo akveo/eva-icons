@@ -20,7 +20,7 @@ const dataAttributesKeys = {
   'data-eva-fill': 'fill',
 };
 
-function replace(attrs = {}) {
+function replace(options = {}) {
   if (typeof document === 'undefined') {
     throw new Error('`eva.replace()` only works in a browser environment.');
   }
@@ -28,17 +28,18 @@ function replace(attrs = {}) {
   const elementsToReplace = document.querySelectorAll('[data-eva]');
 
   Array.from(elementsToReplace).forEach(element =>
-    replaceElement(element, attrs),
+    replaceElement(element, options),
   );
 }
 
-function replaceElement(element, attrs = {}) {
+function replaceElement(element, options = {}) {
   const { name, ...elementAttrs } = getAttrs(element);
 
   const svgString = icons[name].toSvg({
-    ...attrs,
+    ...options,
     ...elementAttrs,
-    ...{ class: classnames(attrs.class, elementAttrs.class) },
+    animation: getAnimationObject(options.animation, elementAttrs.animation),
+    ...{ class: classnames(options.class, elementAttrs.class) },
   });
   const svgDocument = new DOMParser().parseFromString(
     svgString,
@@ -69,14 +70,25 @@ function getAttrs(element) {
 
 function getAttr(attr) {
   if (!!dataAttributesKeys[attr.name]) {
-    return {
+    return ({
       [dataAttributesKeys[attr.name]]: attr.value,
-    };
-  } else {
-    return {
-      [attr.name]: attr.value,
-    };
+    });
   }
+
+  return ({
+    [attr.name]: attr.value,
+  });
+}
+
+function getAnimationObject(optionsAnimation, elementAttrsAnimation) {
+  if (optionsAnimation || elementAttrsAnimation) {
+    return ({
+      ...optionsAnimation,
+      ...elementAttrsAnimation,
+    });
+  }
+
+  return null;
 }
 
 export default replace;
