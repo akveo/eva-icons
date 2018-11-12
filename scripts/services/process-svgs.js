@@ -18,7 +18,7 @@ const processSvgs = (svgFiles, srcPath, desPath) => {
     const desSvgPath = path.join(desPath, svgFile);
     const svg = fs.readFileSync(svgPath);
 
-    return optimizeSvg(svg)
+    return optimizeSvg(svg, [ { removeHiddenElems: false } ])
       .then((processedSvg) => {
         fs.writeFileSync(desSvgPath, processedSvg);
       });

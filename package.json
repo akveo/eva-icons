@@ -65,6 +65,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "fs-extra": "^7.0.0",
+    "globby": "^8.0.1",
     "gm": "^1.23.1",
     "html-minifier": "^3.5.20",
     "jasmine-core": "~2.99.1",

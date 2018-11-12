@@ -6,16 +6,17 @@
 
 const Svgo = require('svgo');
 
-const optimizeSvg = (svg) => {
+const defaultOptions = [
+  { convertShapeToPath: false },
+  { mergePaths: false },
+  { inlineStyles: { onlyMatchedOnce: false } },
+  { removeAttrs: { attrs: '(fill|stroke.*)' } },
+  { removeTitle: true },
+];
+
+const optimizeSvg = (svg, options = []) => {
   const svgo = new Svgo({
-    plugins: [
-      { removeHiddenElems: false },
-      { convertShapeToPath: false },
-      { mergePaths: false },
-      { inlineStyles: { onlyMatchedOnce: false } },
-      { removeAttrs: { attrs: '(fill|stroke.*)' } },
-      { removeTitle: true },
-    ],
+    plugins: defaultOptions.concat(options),
   });
 
   return svgo.optimize(svg)
