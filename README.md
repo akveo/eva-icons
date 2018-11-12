@@ -118,13 +118,15 @@ Replaces all elements that have a `data-eva` attribute with SVG markup.
 <i data-eva="github" data-eva-animation="zoom"></i>
 ```
 
-- By default animation works by hover and has infinity `false`, if you want change this behavior add `data-eva-hover="true | false"` and `data-eva-infinite="true | false"`
+- Additional animation attributes:
+  * `data-eva-hover`: Makes an animation available by hover. Default value is `true`. Available true or false.
+  * `data-eva-infinite`: Makes animation as infinity. Default value is `false`. Available true or false.
 
 ```html
 <i data-eva="github" data-eva-animation="zoom" data-eva-hover="false" data-eva-infinite="true"></i>
 ```
 
-> **Note:** In the above example github icon will be always animated.
+> **Note:** In the above example `github icon` will be always animated. This type of animation will be applied only to current icons.
 
 - Pass animation as property in a `eva.replace` method.
 
@@ -139,7 +141,7 @@ eva.replace({
 ```
 > **Note:** The animation will be applied to all replaced elements.
 
-- Add class `eva-parent-hover` to parent container if you want that the animation works by hover on the parent element.
+- Add `eva-parent-hover` class to the parent container in a case you want to activate the animation hovering on the parent element.
 
 ```html
 <div class="eva-parent-hover">
