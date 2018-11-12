@@ -119,8 +119,8 @@ Replaces all elements that have a `data-eva` attribute with SVG markup.
 ```
 
 - Additional animation attributes:
-  * `data-eva-hover`: Makes an animation available by hover. Default value is `true`. Available true or false.
-  * `data-eva-infinite`: Makes animation as infinity. Default value is `false`. Available true or false.
+  * `data-eva-hover`: Makes the animation available on hover. Default value is `true`. Available true or false.
+  * `data-eva-infinite`: Makes the animation infinite. Default value is `false`. Available true or false.
 
 ```html
 <i data-eva="github" data-eva-animation="zoom" data-eva-hover="false" data-eva-infinite="true"></i>
