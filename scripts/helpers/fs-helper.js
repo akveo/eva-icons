@@ -11,7 +11,7 @@ const fileSystemHelper = {
     return fs.remove(srcPath);
   },
 
-  getSourceFiles(srcPath) {
+  getFilesByPath(srcPath) {
     return new Promise((resolve, reject) => {
       fs.readdir(srcPath, (err, files) => {
         if (err) {

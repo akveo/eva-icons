@@ -40,6 +40,9 @@ const zip = (iconsFolders, archivePath) => {
   addToDirectory(archivePath, false, zip);
 
   zip.pipe(fs.createWriteStream(desFolderPath));
+
+  console.info(`Build ${desFolderPath}`);
+
   zip.finalize();
 };
 
