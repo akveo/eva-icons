@@ -7,12 +7,11 @@
 const path = require('path');
 
 const config = {
-  'convertOrResizeFormats': [
-    {
-      'format': 'png',
-      'size': ['128']
+  'convertOptions': {
+    'png': {
+      'sizes': ['128']
     }
-  ],
+  },
   'copy': [
     {
       'format': 'svg'

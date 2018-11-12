@@ -17,10 +17,14 @@ const buildIconsJSON = (srcIcons, srcPath, folder) => {
   const outFileName = `${prefix}-icons.json`;
   const outFile = path.resolve(config.desPath, outFileName);
 
-  return buildIconsObject(srcIcons, getSvg(srcPath)).then((icons) => {
+  return new Promise((resolve) => {
+    const icons = buildIconsObject(srcIcons, getSvg(srcPath));
+
     console.log(`Building ${outFile}...`);
 
     fs.writeFileSync(outFile, JSON.stringify(icons));
+
+    resolve();
   });
 };
 

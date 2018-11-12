@@ -7,25 +7,28 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-const renameIcon = (files, srcPath, type, extension) => {
-  const folderName = type.toLowerCase();
+const fileSystemHelper = require('../helpers/fs-helper');
 
-  return Promise.all(files.map((svgFile) => {
-    const postfix = 'outline';
-    const isOutline = folderName === postfix;
-    const shouldRename = isOutline && svgFile.indexOf(postfix) === -1;
+const getNewFileName = (srcFile, extension, postfix) => `${path.basename(srcFile, `.${extension}`)}-${postfix}.${extension}`;
 
-    if (shouldRename) {
-      const disExtension = extension;
-      const disFileName = `${path.basename(svgFile, `.${disExtension}`)}-${postfix}.${disExtension}`;
-
-      fs.renameSync(path.resolve(srcPath, svgFile), path.resolve(srcPath, disFileName));
-
-      return disFileName;
+const renameIcons = (srcPath, srcIcons, postfix, commonExtension) => {
+  return Promise.all(srcIcons.map((srcFile) => {
+    if (srcFile.indexOf(postfix) !== -1) {
+      return srcFile;
     }
 
-    return svgFile;
+    let extension = commonExtension;
+
+    if (!extension) {
+      extension = fileSystemHelper.getExtension(srcFile);
+    }
+
+    const newFileName = getNewFileName(srcFile, extension, postfix);
+
+    fs.renameSync(path.resolve(srcPath, srcFile), path.resolve(srcPath, newFileName));
+
+    return newFileName;
   }));
 };
 
-module.exports = renameIcon;
+module.exports = renameIcons;
