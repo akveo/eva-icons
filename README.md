@@ -1,7 +1,7 @@
 <h1><img src="https://i.imgur.com/cXYo5bi.png"> Eva Icons</h1>
 <img src="https://i.imgur.com/oDmqDkE.jpg">
 
-**Eva Icons** is a pack of more than 480 beautifully crafted Open Source icons for common actions and items. Additionally Eva Icons supports 4 animation types: `zoom`, `pulse`, `shake` and `flip`.  Download on desktop to use them in your digital products for Web, iOS and Android. Icons are provided in two visual types: `Fill` and `Outline` and in several formats, including `PNG`, `SVG`, `font`, `Sketch`, etc.
+**Eva Icons** is a pack of more than 480 beautifully crafted Open Source icons for common actions and items. Additionally, Eva Icons supports 4 animation types: `zoom`, `pulse`, `shake` and `flip`.  Download on desktop to use them in your digital products for Web, iOS and Android. Icons are provided in two visual types: `Fill` and `Outline` and in several formats, including `PNG`, `SVG`, `font`, `Sketch`, etc.
 
 ## Download
 - [Complete Eva Icons Package](https://akveo.github.io/eva-icons/eva-icons.zip)
@@ -132,7 +132,7 @@ Replaces all elements that have a `data-eva` attribute with SVG markup.
 
 ```js
 eva.replace({
-  aniamtion: {
+  animation: {
     type: string, // zoom, pulse, shake, flip
     hover: boolean, // default true
     infinite: boolean, // default false
