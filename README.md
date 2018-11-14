@@ -134,7 +134,7 @@ Replaces all elements that have a `data-eva` attribute with SVG markup.
 eva.replace({
   aniamtion: {
     type: string, // zoom, pulse, shake, flip
-    hover: booleam, // default true
+    hover: boolean, // default true
     infinite: boolean, // default false
   }
 });
@@ -146,7 +146,7 @@ eva.replace({
 ```html
 <div class="eva-parent-hover">
   <i data-eva="github" data-eva-animation="zoom"></i>
-  Zoom aniamtion
+  Zoom animation
 </div>
 ```
 
