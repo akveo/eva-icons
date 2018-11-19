@@ -155,7 +155,7 @@ eva.replace({
 
 ## More from Akveo
 
-- [Nebular](https://github.com/akveo/nebular) - Angular Component, Auth and Security
+- [Nebular](https://github.com/akveo/nebular) - Angular Components, Auth and Security
 - [ngx-admin](https://github.com/akveo/ngx-admin) - the best Angular admin template
 
 ## How can I support the developers?
