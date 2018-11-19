@@ -132,7 +132,7 @@ Replaces all elements that have a `data-eva` attribute with SVG markup.
 
 ```js
 eva.replace({
-  aniamtion: {
+  animation: {
     type: string, // zoom, pulse, shake, flip
     hover: boolean, // default true
     infinite: boolean, // default false
