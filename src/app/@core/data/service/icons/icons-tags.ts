@@ -157,7 +157,7 @@ export const iconsTags = {
   'minus': [],
   'monitor': ['tv'],
   'moon': ['dark', 'night'],
-  'more-horizotnal': ['ellipsis'],
+  'more-horizontal': ['ellipsis'],
   'more-vertical': ['ellipsis'],
   'move': ['arrows'],
   'music': ['melody', 'song'],

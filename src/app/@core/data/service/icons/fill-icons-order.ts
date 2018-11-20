@@ -159,7 +159,7 @@ export const fillOrder = {
   'minus': 14700,
   'monitor': 14800,
   'moon': 14900,
-  'more-horizotnal': 15000,
+  'more-horizontal': 15000,
   'more-vertical': 15100,
   'move': 15200,
   'music': 15300,
