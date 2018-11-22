@@ -17,8 +17,14 @@ export class EvaAnalytics {
   }
 
   trackEvent(eventName: string, eventVal: string = '') {
-    if (this.enabled) {
+    if (this.enabled && this.window.ga) {
       ga('send', 'event', eventName, eventVal);
+    }
+
+    if (!this.window.ga) {
+      setTimeout(() => {
+        this.trackEvent(eventName, eventVal);
+      }, 500);
     }
   }
 }
