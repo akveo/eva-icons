@@ -157,7 +157,7 @@ export const outlineOrder = {
   'minus-square-outline': 14600,
   'monitor-outline': 14700,
   'moon-outline': 14800,
-  'more-horizotnal-outline': 14900,
+  'more-horizontal-outline': 14900,
   'more-vertical-outline': 15000,
   'move-outline': 15100,
   'music-outline': 15200,
