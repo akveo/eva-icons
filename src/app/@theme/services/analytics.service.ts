@@ -6,7 +6,6 @@
 
 import { Injectable, Inject } from '@angular/core';
 import { NB_WINDOW } from '@nebular/theme';
-declare const ga: any;
 
 @Injectable()
 export class EvaAnalytics {
@@ -18,7 +17,12 @@ export class EvaAnalytics {
 
   trackEvent(eventName: string, eventVal: string = '') {
     if (this.enabled) {
-      ga('send', 'event', eventName, eventVal);
+      this.gtmPushToDataLayer({ event: eventName, eventValue: eventVal });
     }
+  }
+
+  // Push to 'dataLayer' Google Tag Manager array
+  private gtmPushToDataLayer(params) {
+    this.window.dataLayer.push(params);
   }
 }

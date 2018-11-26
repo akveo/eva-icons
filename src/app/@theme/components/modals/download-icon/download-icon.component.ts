@@ -40,6 +40,6 @@ export class DownloadIconComponent implements AfterViewInit {
   }
 
   clickOnDownloadIcon(icon: { format: string; title: string }) {
-    this.analytics.trackEvent('download-icon', `${this.selectedIcon}.${icon.format}`);
+    this.analytics.trackEvent('downloadIcon', `${this.selectedIcon}.${icon.format}`);
   }
 }

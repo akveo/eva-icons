@@ -27,6 +27,6 @@ export class HeaderComponent {
   clickOnDownloadPack() {
     const version = this.versionService.getEvoVersion();
 
-    this.analytics.trackEvent('download-pack', `download pack version: ${version}`);
+    this.analytics.trackEvent('downloadPack', `download pack version: ${version}`);
   }
 }
