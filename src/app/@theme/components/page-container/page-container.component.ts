@@ -135,7 +135,7 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
   }
 
   clickIcon(icon) {
-    this.analytics.trackEvent('open-icon-dialog', icon);
+    this.analytics.trackEvent('openIconDialog', icon);
 
     if (this.isMobileMode) {
       return;

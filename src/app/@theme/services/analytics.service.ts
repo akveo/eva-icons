@@ -6,7 +6,6 @@
 
 import { Injectable, Inject } from '@angular/core';
 import { NB_WINDOW } from '@nebular/theme';
-declare const ga: any;
 
 @Injectable()
 export class EvaAnalytics {
@@ -18,7 +17,21 @@ export class EvaAnalytics {
 
   trackEvent(eventName: string, eventVal: string = '') {
     if (this.enabled) {
-      ga('send', 'event', eventName, eventVal);
+      this.gtm({ event: eventName, eventValue: eventVal });
+    }
+  }
+
+  private isGaLoaded() {
+    return this.window.ga;
+  }
+
+  private gtm(params) {
+    if (this.isGaLoaded()) {
+      this.window.dataLayer.push(params);
+    } else {
+      setTimeout(() => {
+        this.gtm(params);
+      }, 500);
     }
   }
 }
