@@ -17,21 +17,12 @@ export class EvaAnalytics {
 
   trackEvent(eventName: string, eventVal: string = '') {
     if (this.enabled) {
-      this.gtm({ event: eventName, eventValue: eventVal });
+      this.gtmPushToDataLayer({ event: eventName, eventValue: eventVal });
     }
   }
 
-  private isGaLoaded() {
-    return this.window.ga;
-  }
-
-  private gtm(params) {
-    if (this.isGaLoaded()) {
-      this.window.dataLayer.push(params);
-    } else {
-      setTimeout(() => {
-        this.gtm(params);
-      }, 500);
-    }
+  // Push to 'dataLayer' Google Tag Manager array
+  private gtmPushToDataLayer(params) {
+    this.window.dataLayer.push(params);
   }
 }
