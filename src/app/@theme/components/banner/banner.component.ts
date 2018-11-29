@@ -21,7 +21,8 @@ const HIDE_BANNER_KEY = 'HIDE_RELEASE_2_BANNER';
     </div>
     <p class="cta">
       Don't forget to <a class="cta-link"
-                         href="https://akveo.github.io/nebular?utm_source=eva-icons&utm_medium=banner_link">
+                         href="https://akveo.github.io/nebular?utm_source=eva-icons&utm_medium=banner_link"
+                         target="_blank">
       check out</a> and star our repo :)
     </p>
   `,
