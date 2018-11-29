@@ -1,0 +1,32 @@
+/**
+ * @license
+ * Copyright Akveo. All Rights Reserved.
+ * Licensed under the MIT License. See License.txt in the project root for license information.
+ */
+
+@import '../../styles/themes';
+
+@mixin ngx-release-banner-component {
+  eva-release-banner {
+    background-color: nb-theme(release-banner-bg);
+    color: nb-theme(release-banner-fg);
+
+    .heading-with-icon {
+      border-bottom-color: nb-theme(release-banner-separator);
+    }
+
+    .banner-heading,
+    .close-button {
+      color: nb-theme(release-banner-fg);
+    }
+
+    .cta {
+      color: nb-theme(release-banner-cta);
+    }
+
+    .cta-link {
+      background: nb-theme(release-banner-fg);
+      color: nb-theme(release-banner-bg);
+    }
+  }
+}

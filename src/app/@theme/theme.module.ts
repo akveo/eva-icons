@@ -16,6 +16,7 @@ import { PageContainerComponent } from './components/page-container/page-contain
 import { IconListComponent } from './components/icon-list/icon-list.component';
 import { TypeSwitcherComponent } from './components/type-switcher/type-switcher.component';
 import { AnimationSwitcherComponent } from './components/animation-switcher/animation-switcher.component';
+import { BannerComponent } from './components/banner/banner.component';
 // components
 
 // services
@@ -46,6 +47,7 @@ const COMPONENTS = [
   IconListComponent,
   TypeSwitcherComponent,
   AnimationSwitcherComponent,
+  BannerComponent,
 ];
 
 const PIPES = [
@@ -87,6 +89,7 @@ const PIPES = [
     HeaderComponent,
     PageContainerComponent,
     IconListComponent,
+    BannerComponent,
 
     ...PIPES,
   ],
