@@ -7,9 +7,10 @@
 @import '../../styles/themes';
 
 @include nb-install-component() {
+  font-size: nb-theme(font-size-sm);
   position: fixed;
-  @include nb-ltr(right, 1.5rem);
-  @include nb-rtl(left, 1.5rem);
+  @include nb-ltr(right, 1.25rem);
+  @include nb-rtl(left, 1.25rem);
   top: 40vh;
   border-radius: 5px;
   box-shadow: 0 5px 12px 0 rgba(0, 32, 128, 0.14);
@@ -24,15 +25,15 @@
 
   .icon {
     height: auto;
-    width: 4rem;
-    margin: 0 1.625rem;
+    width: 3.75rem;
+    margin: 0 1.35rem;
   }
 
   .banner-heading {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.5;
     font-weight: 600;
-    margin: 1.625rem 0;
+    margin: 1.35rem 0;
   }
 
   .close-button {
@@ -40,11 +41,11 @@
     border: none;
     cursor: pointer;
     margin-bottom: auto;
-    padding: 0.625rem;
+    padding: 0.35rem;
   }
 
   .nb-close {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
   }
 
