@@ -26,7 +26,7 @@ const HIDE_BANNER_KEY = 'HIDE_PRODUCT_HUNT_BANNER';
         </p>
       </div>
       <button class="close-button" aria-label="close" (click)="closeBanner()">
-        <span class="nb-close"></span>
+        <i [innerHTML]="'close' | eva: { width: 24, height: 24, fill: '#ffffff' }"></i>
       </button>
     </div>
   `,
