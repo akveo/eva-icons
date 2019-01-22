@@ -42,9 +42,8 @@ export class BannerComponent implements OnInit {
   @HostBinding('attr.dir')
   dir = 'ltr';
 
-  constructor(
-    @Inject(NB_WINDOW) private window,
-  ) {}
+  constructor(@Inject(NB_WINDOW) private window) {
+  }
 
   ngOnInit() {
     this.storage = this.window.localStorage;
