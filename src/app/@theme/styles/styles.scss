@@ -10,11 +10,7 @@
 @import '~@nebular/theme/styles/globals';
 @import '~@nebular/bootstrap/styles/globals';
 
-@import '../components/banner/banner.component.theme';
-
 @include nb-install() {
   @include nb-theme-global();
   @include nb-bootstrap-global();
-
-  @include ngx-release-banner-component();
 };

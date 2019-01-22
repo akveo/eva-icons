@@ -6,34 +6,38 @@
 
 @import '../../styles/themes';
 
-@include nb-install-component() {
-  font-size: nb-theme(font-size-sm);
+:host {
   position: fixed;
-  @include nb-ltr(right, 1.25rem);
-  @include nb-rtl(left, 1.25rem);
-  top: 40vh;
+  @include nb-ltr(right, 1.5rem);
+  @include nb-rtl(left, 1.5rem);
+  top: 20vh;
   border-radius: 5px;
-  box-shadow: 0 5px 12px 0 rgba(0, 32, 128, 0.14);
+  background-color: #dc5425;
+  box-shadow: 0 2px 4px 0 rgba(189, 93, 60, 0.54);
   z-index: 99999999;
 
   .heading-with-icon {
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
     display: flex;
     align-items: center;
   }
 
   .icon {
     height: auto;
-    width: 3.75rem;
-    margin: 0 1.35rem;
+    width: 77px;
+    margin: 0 26px;
   }
 
   .banner-heading {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    font-weight: 600;
-    margin: 1.35rem 0;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .banner-content {
+    padding-top: 36px;
+    padding-bottom: 36px;
   }
 
   .close-button {
@@ -41,29 +45,34 @@
     border: none;
     cursor: pointer;
     margin-bottom: auto;
-    padding: 0.35rem;
+    padding: 10px;
+    color: #ffffff;
   }
 
   .nb-close {
-    font-size: 1.25rem;
+    font-size: 24px;
     font-weight: 600;
   }
 
   .cta {
-    margin: 0;
-    text-align: center;
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #ffffff;
   }
 
   .cta-link {
-    border-radius: 1.8px;
+    font-size: 10px;
+    border-radius: 2px;
     display: inline-block;
-    padding: 0.5rem 1rem;
-    margin: 0.725rem 0.8rem;
+    padding: 4px 16px;
+    margin: 0 10px;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
+    background: #ffffff;
+    color: #000000;
   }
 
-  @media screen and (max-width: 63rem) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
