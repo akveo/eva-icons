@@ -167,3 +167,9 @@ eva.replace({
 ## From Developers
 Made with :heart: by [Akveo team](http://akveo.com?utm_source=github&utm_medium=nebular_readme). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
 We're always happy to receive your feedback!
+
+## Third Party Extensions
+
+### Flutter
+
+Icons are also available for Flutter through [eva_icons_flutter](https://github.com/piyushmaurya23/eva_icons_flutter) package created by [@piyushmaurya23](https://github.com/piyushmaurya23), package can be find [here](https://pub.dev/packages/eva_icons_flutter).
