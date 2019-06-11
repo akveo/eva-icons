@@ -76,6 +76,24 @@ import * as eva from 'eva-icons';
 ```html
 <i data-eva="github" data-eva-fill="#ff0000" data-eva-height="48" data-eva-width="48"></i>
 ```
+### TypeScript / Angular
+
+- Make sure you installed the package with NPM.
+
+- Add the eva pipes available [here](https://github.com/akveo/eva-icons/blob/master/src/app/%40theme/pipes/eva-icons.pipe.ts) to your application.  
+ ⚠️ *If there's an undefined error, verify that the import path is correct according to your modules folder*
+
+- Use it your HTML as shown below:
+
+```html
+<span [innerHTML]="'car-outline' | eva: {
+                   height: 14, 
+                   width: 14,
+                   fill: '#11BB00', 
+                   animationType:'zoom' ,
+                   animationHover: true ,
+                   animationInfinity: false} "></span>
+```
 
 ### Fonts
 
