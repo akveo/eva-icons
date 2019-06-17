@@ -150,6 +150,11 @@ eva.replace({
 </div>
 ```
 
+## 3rd party implementations
+
+- [React Native](https://github.com/artyorsh/react-native-eva-icons)
+- [Flutter](https://github.com/piyushmaurya23/eva_icons_flutter)
+
 ## License
 [MIT](LICENSE.txt) license.
 
