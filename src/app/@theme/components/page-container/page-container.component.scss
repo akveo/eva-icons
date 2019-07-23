@@ -55,9 +55,13 @@
     font-size: nb-theme(font-size-lg);
     line-height: 1.625;
     margin-bottom: 2rem;
-    
+
     span {
       font-weight: nb-theme(font-weight-ultra-bold);
+    }
+
+    .eva-ds-link {
+      color: nb-theme(color-primary);
     }
   }
 
@@ -198,7 +202,7 @@
       padding-left: 0;
       font-size: 4rem;
     }
-    
+
     .description {
       margin-bottom: 4rem;
       font-size: nb-theme(font-size);
