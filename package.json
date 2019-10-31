@@ -68,6 +68,7 @@
     "globby": "^8.0.1",
     "gm": "^1.23.1",
     "html-minifier": "^3.5.20",
+    "isomorphic-style-loader": "^5.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",

@@ -6,7 +6,10 @@
 
 import icons from './icons';
 import replace from './replace';
+import style from './animation.scss';
 
-import './animation.scss';
+if (typeof window !== 'undefined') {
+  style._insertCss();
+}
 
 export { icons, replace };
