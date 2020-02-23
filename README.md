@@ -6,7 +6,7 @@
 ## Download
 - [Complete Eva Icons Package](https://akveo.github.io/eva-icons/eva-icons.zip)
 - [NPM Package](https://www.npmjs.com/package/eva-icons)
-- you also can download icons one by one in `PNG` and `SVG` formats from [Eva Icons Website](https://akveo.github.io/eva-icons/).
+- you also can download icons one by one in `PNG` and `SVG` formats from [Eva Icons Website](https://hubs.ly/H0n7b3S0).
 
 ### CDN
 
@@ -170,5 +170,5 @@ eva.replace({
 - Like our page on [Facebook](https://www.facebook.com/akveo/) :thumbsup:
 
 ## From Developers
-Made with :heart: by [Akveo team](http://akveo.com?utm_source=github&utm_medium=nebular_readme). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
+Made with :heart: by [Akveo team](https://hubs.ly/H0n79yM0). Follow us on [Twitter](https://twitter.com/akveo_inc) to get the latest news first!
 We're always happy to receive your feedback!
