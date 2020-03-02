@@ -216,6 +216,7 @@ export const outlineOrder = {
   'skip-forward-outline': 20300,
   'slash-outline': 20400,
   'smartphone-outline': 20500,
+  'smiling-face-outline': 20550,
   'speaker-outline': 20600,
   'square-outline': 20700,
   'star-outline': 20800,

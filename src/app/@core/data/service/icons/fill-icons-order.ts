@@ -218,6 +218,7 @@ export const fillOrder = {
   'skip-forward': 20500,
   'slash': 20600,
   'smartphone': 20700,
+  'smiling-face': 20750,
   'speaker': 20800,
   'square': 20900,
   'star': 21000,

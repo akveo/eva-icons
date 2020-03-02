@@ -216,6 +216,7 @@ export const iconsTags = {
   'skip-forward': ['music'],
   'slash': ['ban', 'no'],
   'smartphone': ['mobile'],
+  'smiling-face': ['smiling', 'face', 'stickers', 'memes'],
   'speaker': ['music'],
   'square': ['figure'],
   'star': ['bookmark', 'favorite', 'like'],
