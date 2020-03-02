@@ -1,6 +1,6 @@
 {
   "name": "eva-icons-landing",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -22,7 +22,7 @@
     "build:icons": "node ./scripts/index.js",
     "icons:prepare": "npm run build:icons && webpack",
     "publish": "npm publish --access=public package-build",
-    "gh-pages": "npm run build:prod && npm run ngh -- --dir ./dist"
+    "gh-pages": "npm run build:prod && npm run ngh -- --dir ./dist --no-silent"
   },
   "private": true,
   "dependencies": {
