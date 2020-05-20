@@ -250,4 +250,5 @@ export const fillOrder = {
   'volume-up': 23600,
   'wifi-off': 23700,
   'wifi': 23800,
+  'shirt': 23900,
 };

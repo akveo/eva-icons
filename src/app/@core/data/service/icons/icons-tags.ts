@@ -208,6 +208,7 @@ export const iconsTags = {
   'share': [],
   'shield-off': ['security'],
   'shield': ['security'],
+  'shirt': ['clothes', 't-shirt', 'clothing'],
   'shopping-bag': ['ecommerce', 'cart', 'purchase', 'store'],
   'shopping-cart': ['ecommerce', 'cart', 'purchase', 'store'],
   'shuffle-2': ['music'],

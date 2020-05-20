@@ -248,4 +248,5 @@ export const outlineOrder = {
   'volume-up-outline': 23400,
   'wifi-off-outline': 23500,
   'wifi-outline': 23600,
+  'shirt-outline': 23700,
 };
