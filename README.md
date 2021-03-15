@@ -154,6 +154,7 @@ eva.replace({
 
 - [React Native](https://github.com/artyorsh/react-native-eva-icons)
 - [Flutter](https://github.com/piyushmaurya23/eva_icons_flutter)
+- [Jetpack Compose](https://github.com/DevSrSouza/compose-icons)
 
 ## License
 [MIT](LICENSE.txt) license.
