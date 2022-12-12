@@ -55,7 +55,7 @@
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
-    "angular-cli-ghpages": "^0.5.3",
+    "angular-cli-ghpages": "^1.0.5",
     "archiver": "^3.0.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.2",
