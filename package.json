@@ -86,7 +86,7 @@
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webfont": "^8.1.4",
     "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.1",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.1.4"
   }
 }
